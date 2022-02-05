@@ -41,4 +41,4 @@ See `LICENSE` for more details.
 
 ## Other mirrors
 
-https://gitlab.com/Jorgu81/user.js/tree/master/Pale%20Moon
+https://git.nixnet.services/Narsil/palemoon_user.js
