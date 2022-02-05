@@ -136,4 +136,4 @@ See `LICENSE` for more details.
 
 ## Other mirrors
 
-https://gitlab.com/Jorgu81/user.js/tree/master/Mobile
+https://git.nixnet.services/Narsil/mobile_user.js
