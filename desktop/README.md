@@ -106,4 +106,4 @@ See `LICENSE` for more details.
 
 ## Other mirrors
 
-https://gitlab.com/Jorgu81/user.js/tree/master/Firefox%20Desktop
+https://git.nixnet.services/Narsil/desktop_user.js
