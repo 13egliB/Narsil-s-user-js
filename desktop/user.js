@@ -978,6 +978,10 @@ user_pref("extensions.systemAddon.update.url", ""); // [FF44+]
 // user_pref("privacy.trackingprotection.cryptomining.enabled", true); // [DEFAULT: true]
 // user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // [DEFAULT: true]
 // -------------------------------------
+// Allow embedded tweets and Reddit posts
+user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com"); // [HIDDEN PREF]
+user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // [HIDDEN PREF]
+// -------------------------------------
 // Disable service workers [FF32, FF44-compat]
 // user_pref("dom.serviceWorkers.enabled", false);
 // -------------------------------------
