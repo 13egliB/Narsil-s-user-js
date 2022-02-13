@@ -288,6 +288,9 @@ user_pref("network.predictor.enable-prefetch", false); // [FF48+] [DEFAULT: fals
 // Disable link-mouseover opening connection to linked server
 user_pref("network.http.speculative-parallel-limit", 0);
 // -------------------------------------
+// Disable mousedown speculative connections on bookmarks and history [FF98+]
+user_pref("browser.places.speculativeConnect.enabled", false);
+// -------------------------------------
 // Enforce no "Hyperlink Auditing" (click tracking)
 // user_pref("browser.send_pings", false); // [DEFAULT: false]
 //
@@ -311,7 +314,7 @@ user_pref("network.gio.supported-protocols", ""); // [HIDDEN PREF]
 // user_pref("network.proxy.failover_direct", false);
 // -------------------------------------
 // Disable proxy bypass for system request failures [FF95+]
-// user_pref("network.proxy.allow_bypass", false); // [HIDDEN PREF]
+// user_pref("network.proxy.allow_bypass", false); // [HIDDEN PREF FF95-96]
 // -------------------------------------
 // Disable DNS-over-HTTPS (DoH) rollout [FF60+]
 user_pref("network.trr.mode", 5);
@@ -531,7 +534,7 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 user_pref("privacy.userContext.enabled", true);
 user_pref("privacy.userContext.ui.enabled", true);
 // -------------------------------------
-// Set behaviour on "+ Tab" button to display container menu on left click [FF74+]
+// Set behavior on "+ Tab" button to display container menu on left click [FF74+]
 // user_pref("privacy.userContext.newTabContainerOnLeftClick.enabled", true);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -933,7 +936,7 @@ user_pref("extensions.webcompat-reporter.enabled", false); // [DEFAULT: false]
 user_pref("geo.enabled", false);
 // user_pref("full-screen-api.enabled", false);
 user_pref("browser.cache.offline.enable", false);
-user_pref("dom.vr.enabled", false);
+user_pref("dom.vr.enabled", false); // [DEFAULT: false FF97+]
 // -------------------------------------
 // Set default permissions
 // 0=always ask (default), 1=allow, 2=block
@@ -961,7 +964,6 @@ user_pref("security.ssl3.rsa_aes_256_sha", false); // no PFS
 // user_pref("security.ssl.disable_session_identifiers", true); // [HIDDEN PREF]
 // -------------------------------------
 // Onions
-// user_pref("dom.securecontext.whitelist_onions", true);
 // user_pref("dom.securecontext.allowlist_onions", true);
 // user_pref("network.http.referer.hideOnionSource", true);
 // -------------------------------------
@@ -1187,6 +1189,10 @@ user_pref("browser.urlbar.suggest.quicksuggest", false);
 // FF96
 // Disable auto-INSTALLING Firefox updates via a background service [FF90+] [WINDOWS]
 user_pref("app.update.background.scheduling.enabled", false);
+// -------------------------------------
+// FF97
+// Onions - replaced by new "allowlist"
+// user_pref("dom.securecontext.whitelist_onions", true);
 // -------------------------------------
 // Test user.js in about:config
 user_pref("_config.applied", true);
