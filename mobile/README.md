@@ -122,6 +122,7 @@ I really thank the following authors:
 * [Tor Project](https://www.torproject.org) - Some Tor Browser strings.
 * [Quindecim](https://git.nixnet.xyz/quindecim/mobile_user.js) - Initial releases, unique strings and user design.
 * [LibreWolf](https://gitlab.com/librewolf-community) - Some strings.
+* [Better-Fox](https://github.com/yokoffing/Better-Fox) - Some strings
 * [gallegonovato](https://git.nixnet.xyz/gallegonovato) - For his suggestions and support.
 * [v1nc](https://github.com/v1nc/) - For his user.js updater app.
 
