@@ -28,14 +28,6 @@ https://bugzilla.mozilla.org/show_bug.cgi?id=1598562#c13
 So you will have to include it to the host list of your OS.
 
 
-Besides, take into account it makes a connection to aus5.mozilla.org in order to autoupdate itself so you'll also have to add it to your host list.
-Alternatively, you could copy the folder `distribution` with the `policies.json` file into your Firefox installation folder. More information about this:
-
-[Customizing firefox using policies.json](https://support.mozilla.org/en-US/kb/customizing-firefox-using-policiesjson)
-
-[DisableAppUpdate](https://github.com/mozilla/policy-templates/blob/master/README.md#disableappupdate)
-
-
 Nevertheless, consider installing Abrowser from Trisquel, Icecat, Iceweasel for Parabola or Librewolf. They lack that connection:
 
 [Abrowser](https://archive.trisquel.info/trisquel/pool/main/f/firefox/?C=S;O=D)
@@ -46,7 +38,40 @@ Nevertheless, consider installing Abrowser from Trisquel, Icecat, Iceweasel for 
 
 [Librewolf](https://librewolf.net/)
 
-These browsers only have a connection to shavar.services.mozilla.com in order to update the blocking lists used by Enhanced Tracking Protection (ETP) that can be disabled changing browser.safebrowsing.provider.mozilla.updateURL to nothing.
+
+On the other, if you are using a GNU/Linux distro you could remove that connection, and others, unpacking two omni.ja files, removing all the addresses, and then re-zipping the omni.ja files.
+
+Find your omni.ja files:
+find . -name omni.ja
+
+Unpack them (do this for both of them separately):
+mkdir unpack
+mv omni.ja unpack
+cd unpack
+unzip omni.ja
+
+Remove telemetry:
+find -type f -print0 | xargs -0 sed -i 's/https\:\/\/firefox\.settings\.services\.mozilla\.com\/v1\/buckets\/main\/collections\/nimbus-desktop-experiments\/records//g';
+find -type f -print0 | xargs -0 sed -i 's/https\:\/\/firefox\.settings\.services\.mozilla\.com\/v1\/buckets\/main-preview\/collections\/search-config\/records//g';
+find -type f -print0 | xargs -0 sed -i 's/https\:\/\/firefox\.settings\.services\.mozilla\.com\/v1\/buckets\/main\/collections\/search-config\/records//g';
+find -type f -print0 | xargs -0 sed -i 's/https\:\/\/firefox\.settings\.services\.mozilla\.com\/v1//g';
+find -type f -print0 | xargs -0 sed -i 's/onecrl\.content-signature\.mozilla\.org//g';
+find -type f -print0 | xargs -0 sed -i 's/remote-settings\.content-signature\.mozilla\.org//g';
+find -type f -print0 | xargs -0 sed -i 's/normandy\.content-signature\.mozilla\.org//g';
+
+Replace the omni.ja files:
+mv omni.ja back.omni.ja
+zip -0DXqr omni.ja *
+mv omni.ja .. 
+
+
+Besides, take into account it makes a connection to aus5.mozilla.org in order to autoupdate itself so you'll also have to add it to your host list.
+Alternatively, you could copy the folder `distribution` with the `policies.json` file into your Firefox installation folder. More information about this:
+
+[Customizing firefox using policies.json](https://support.mozilla.org/en-US/kb/customizing-firefox-using-policiesjson)
+
+[DisableAppUpdate](https://github.com/mozilla/policy-templates/blob/master/README.md#disableappupdate)
+
 
 
 ## Updating addons
@@ -96,8 +121,8 @@ I really thank the following authors:
 * [Tor Project](https://www.torproject.org) - Some Tor Browser strings.
 * [Quindecim](https://git.nixnet.xyz/quindecim/mobile_user.js) - Some unique strings and user design.
 * [LibreWolf](https://gitlab.com/librewolf-community) - Some strings.
-* [Better-Fox](https://github.com/yokoffing/Better-Fox) - Some strings
-* [Spyware Watchdog](https://web.archive.org/web/20200402031335/https://spyware.neocities.org/guides/firefox.html) - Mozilla Firefox Spyware Mitigation Guide (Archive.org)
+* [Better-Fox](https://github.com/yokoffing/Better-Fox) - Some strings.
+* [Spyware Watchdog](https://spyware.neocities.org/) - Mozilla Firefox Spyware Mitigation Guide (Archive.org) and Tor Browser mitigation guide.
 
 ## License
 
@@ -107,4 +132,4 @@ See `LICENSE` for more details.
 
 ## Other mirrors
 
-https://git.nixnet.services/Narsil/desktop_user.js
+https://codeberg.org/Narsil/user.js/src/branch/main/desktop
