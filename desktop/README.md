@@ -39,7 +39,7 @@ Nevertheless, consider installing Abrowser from Trisquel, Icecat, Iceweasel for 
 [Librewolf](https://librewolf.net/)
 
 
-On the other, if you are using a GNU/Linux distro you could remove that connection, and others, unpacking two omni.ja files, removing all the addresses, and then re-zipping the omni.ja files.
+On the other hand, if you are using a GNU/Linux distro that connection could be removed unpacking two omni.ja files, removing all the addresses, and then re-zipping the omni.ja files.
 
 
 `Find your omni.ja files`:
