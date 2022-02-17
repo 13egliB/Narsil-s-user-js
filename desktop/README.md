@@ -46,6 +46,7 @@ Find your omni.ja files:
 find . -name omni.ja
 
 Unpack them (do this for both of them separately):
+
 mkdir unpack
 
 mv omni.ja unpack
@@ -55,7 +56,9 @@ cd unpack
 unzip omni.ja
 
 
+
 Remove telemetry:
+
 find -type f -print0 | xargs -0 sed -i 's/https\:\/\/firefox\.settings\.services\.mozilla\.com\/v1\/buckets\/main\/collections\/nimbus-desktop-experiments\/records//g';
 
 find -type f -print0 | xargs -0 sed -i 's/https\:\/\/firefox\.settings\.services\.mozilla\.com\/v1\/buckets\/main-preview\/collections\/search-config\/records//g';
@@ -70,6 +73,7 @@ find -type f -print0 | xargs -0 sed -i 's/remote-settings\.content-signature\.mo
 
 find -type f -print0 | xargs -0 sed -i 's/normandy\.content-signature\.mozilla\.org//g';
 
+
 Replace the omni.ja files:
 
 mv omni.ja back.omni.ja
@@ -77,6 +81,7 @@ mv omni.ja back.omni.ja
 zip -0DXqr omni.ja *
 
 mv omni.ja .. 
+
 
 
 Besides, take into account it makes a connection to aus5.mozilla.org in order to autoupdate itself so you'll also have to add it to your host list.
