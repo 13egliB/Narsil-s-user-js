@@ -42,26 +42,40 @@ Nevertheless, consider installing Abrowser from Trisquel, Icecat, Iceweasel for 
 On the other, if you are using a GNU/Linux distro you could remove that connection, and others, unpacking two omni.ja files, removing all the addresses, and then re-zipping the omni.ja files.
 
 Find your omni.ja files:
+
 find . -name omni.ja
 
 Unpack them (do this for both of them separately):
 mkdir unpack
+
 mv omni.ja unpack
+
 cd unpack
+
 unzip omni.ja
+
 
 Remove telemetry:
 find -type f -print0 | xargs -0 sed -i 's/https\:\/\/firefox\.settings\.services\.mozilla\.com\/v1\/buckets\/main\/collections\/nimbus-desktop-experiments\/records//g';
+
 find -type f -print0 | xargs -0 sed -i 's/https\:\/\/firefox\.settings\.services\.mozilla\.com\/v1\/buckets\/main-preview\/collections\/search-config\/records//g';
+
 find -type f -print0 | xargs -0 sed -i 's/https\:\/\/firefox\.settings\.services\.mozilla\.com\/v1\/buckets\/main\/collections\/search-config\/records//g';
+
 find -type f -print0 | xargs -0 sed -i 's/https\:\/\/firefox\.settings\.services\.mozilla\.com\/v1//g';
+
 find -type f -print0 | xargs -0 sed -i 's/onecrl\.content-signature\.mozilla\.org//g';
+
 find -type f -print0 | xargs -0 sed -i 's/remote-settings\.content-signature\.mozilla\.org//g';
+
 find -type f -print0 | xargs -0 sed -i 's/normandy\.content-signature\.mozilla\.org//g';
 
 Replace the omni.ja files:
+
 mv omni.ja back.omni.ja
+
 zip -0DXqr omni.ja *
+
 mv omni.ja .. 
 
 
