@@ -860,7 +860,7 @@ user_pref("mathml.disabled", true);
 // user_pref("svg.disabled", true);
 // -------------------------------------
 // Disable graphite
-// user_pref("gfx.font_rendering.graphite.enabled", false);
+user_pref("gfx.font_rendering.graphite.enabled", false);
 // -------------------------------------
 // Disable asm.js [FF22+]
 user_pref("javascript.options.asmjs", false);
@@ -871,7 +871,7 @@ user_pref("javascript.options.baselinejit", false);
 user_pref("javascript.options.jit_trustedprincipals", true); // [FF75+] [HIDDEN PREF]
 // -------------------------------------
 // Disable WebAssembly [FF52+]
-// user_pref("javascript.options.wasm", false);
+user_pref("javascript.options.wasm", false);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // DON'T TOUCH
@@ -1004,13 +1004,13 @@ user_pref("extensions.systemAddon.update.url", ""); // [FF44+]
 // user_pref("privacy.donottrackheader.enabled", true);
 // -------------------------------------
 // Customize ETP settings
-// user_pref("network.cookie.cookieBehavior", 5);
-// user_pref("privacy.partition.network_state.ocsp_cache", true);
-// user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true);
-// user_pref("privacy.trackingprotection.enabled", true);
-// user_pref("privacy.trackingprotection.socialtracking.enabled", true);
-// user_pref("privacy.trackingprotection.cryptomining.enabled", true); // [DEFAULT: true]
-// user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // [DEFAULT: true]
+user_pref("network.cookie.cookieBehavior", 5);
+user_pref("privacy.partition.network_state.ocsp_cache", true);
+user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true);
+user_pref("privacy.trackingprotection.enabled", true);
+user_pref("privacy.trackingprotection.socialtracking.enabled", true);
+user_pref("privacy.trackingprotection.cryptomining.enabled", true); // [DEFAULT: true]
+user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // [DEFAULT: true]
 // -------------------------------------
 // Allow embedded tweets and Reddit posts. Don't do it!
 // user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com"); // [HIDDEN PREF]
@@ -1134,7 +1134,7 @@ user_pref("layout.spellcheckDefault", 0); // 0=none, 1-multi-line, 2=multi-line 
 // user_pref("browser.quitShortcut.disabled", true); // disable Ctrl-Q quit shortcut [LINUX] [MAC] [FF87+]
 // user_pref("browser.tabs.closeWindowWithLastTab", false);
 // user_pref("browser.tabs.loadBookmarksInTabs", true); // open bookmarks in a new tab [FF57+]
-// user_pref("browser.urlbar.decodeURLsOnCopy", true); // see bugzilla 1320061 [FF53+]
+// user_pref("browser.urlbar.decodeURLsOnCopy", true); // [FF53+]
 // user_pref("general.autoScroll", false); // middle-click enabling auto-scrolling [DEFAULT: false on Linux]
 // user_pref("ui.key.menuAccessKey", 0); // disable alt key toggling the menu bar [RESTART]
 // user_pref("view_source.tab", false); // view "page/selection source" in a new window [FF68+, FF59 and under]
@@ -1152,7 +1152,7 @@ user_pref("reader.parse-on-load.enabled", false); // Reader View
 // user_pref("browser.bookmarks.max_backups", 2);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false); // disable CFR [FF67+]
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false); // disable CFR [FF67+]
-// user_pref("network.manage-offline-status", false); // see bugzilla 620472
+user_pref("network.manage-offline-status", false);
 // user_pref("xpinstall.signatures.required", false); // enforced extension signing (Nightly/ESR)
 //
 // MORE
