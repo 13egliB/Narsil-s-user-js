@@ -84,6 +84,8 @@ https://www.ghacks.net/2020/10/01/you-can-now-install-any-add-on-in-firefox-nigh
 
 ## Considerations
 
+Once installed go to Settings, ETP and select Strict.
+
 Some automatic connections could not be blocked so you will have to add them to your host list.
 
 firefox.settings.services.mozilla.com
