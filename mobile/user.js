@@ -908,7 +908,7 @@ user_pref("privacy.window.name.update.enabled", true); // [DEFAULT: true]
 user_pref("dom.storage.next_gen", true); // [DEFAULT: true FF92+]
 // -------------------------------------
 // Enforce no First Party Isolation [FF51+]
-user_pref("privacy.firstparty.isolate", false); // [DEFAULT: false]
+user_pref("privacy.firstparty.isolate", true); // [DEFAULT: false]
 // -------------------------------------
 // Enforce SmartBlock shims [FF81+]
 user_pref("extensions.webcompat.enable_shims", true); // [DEFAULT: true]
@@ -1017,7 +1017,7 @@ user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // [DEFAUL
 // user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // [HIDDEN PREF]
 // -------------------------------------
 // Disable service workers [FF32, FF44-compat]
-// user_pref("dom.serviceWorkers.enabled", false);
+user_pref("dom.serviceWorkers.enabled", false);
 // -------------------------------------
 // Disable Web Notifications
 // user_pref("dom.webnotifications.enabled", false); // [FF22+]
