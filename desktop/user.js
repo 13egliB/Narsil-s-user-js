@@ -435,6 +435,10 @@ user_pref("security.family_safety.mode", 0);
 user_pref("security.cert_pinning.enforcement_level", 2);
 // -------------------------------------
 // Disable CRLite [FF73+]
+// 0 = disabled
+// 1 = consult CRLite but only collect telemetry (default)
+// 2 = consult CRLite and enforce both "Revoked" and "Not Revoked" results
+// 3 = consult CRLite and enforce "Not Revoked" results, but defer to OCSP for "Revoked" (FF99+)
 user_pref("security.remote_settings.intermediates.enabled", false);
 user_pref("security.remote_settings.intermediates.bucket", "");
 user_pref("security.remote_settings.intermediates.collection", "");
@@ -984,7 +988,7 @@ user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // [DEFAUL
 // user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com"); // [HIDDEN PREF]
 // user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // [HIDDEN PREF]
 // -------------------------------------
-// Disable service workers [FF32, FF44-compat]
+// Disable service workers
 // user_pref("dom.serviceWorkers.enabled", false);
 // -------------------------------------
 // Disable Web Notifications
@@ -1006,7 +1010,7 @@ user_pref("device.sensors.enabled", false);
 // user_pref("dom.enable_performance", false);
 // user_pref("dom.enable_resource_timing", false);
 user_pref("dom.gamepad.enabled", false);
-// user_pref("dom.netinfo.enabled", false);
+user_pref("dom.netinfo.enabled", false); // [DEFAULT: false NON-ANDROID: false ANDROID FF99+]
 user_pref("dom.webaudio.enabled", false);
 user_pref("dom.vibrator.enabled", false);
 // -------------------------------------
@@ -1093,7 +1097,7 @@ user_pref("layout.spellcheckDefault", 0); // 0=none, 1-multi-line, 2=multi-line 
 // user_pref("browser.urlbar.decodeURLsOnCopy", true); // [FF53+]
 // user_pref("general.autoScroll", false); // middle-click enabling auto-scrolling [DEFAULT: false on Linux]
 // user_pref("ui.key.menuAccessKey", 0); // disable alt key toggling the menu bar [RESTART]
-// user_pref("view_source.tab", false); // view "page/selection source" in a new window [FF68+, FF59 and under]
+// user_pref("view_source.tab", false); // view "page/selection source" in a new window [FF68+]
 //
 // UX FEATURES
 //
