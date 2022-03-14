@@ -1113,6 +1113,7 @@ user_pref("reader.parse-on-load.enabled", false); // Reader View
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false); // disable CFR [FF67+]
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false); // disable CFR [FF67+]
 user_pref("network.manage-offline-status", false);
+user_pref("browser.preferences.moreFromMozilla", false);
 // user_pref("xpinstall.signatures.required", false); // enforced extension signing (Nightly/ESR)
 //
 // MORE
