@@ -3,6 +3,8 @@ A `user.js` file for configuring and hardening desktop Firefox privacy.
 
 Concretely, this is a fork from the [arkenfox](https://github.com/arkenfox/user.js) project.
 
+Go to arkenfox web page in order to get more information about these changes.
+
 
 ## Goals
 
@@ -62,21 +64,25 @@ unzip omni.ja
 
 `Remove telemetry`:
 
-find -type f -print0 | xargs -0 sed -i 's/https\:\/\/firefox\.settings\.services\.mozilla\.com\/v1\/buckets\/main\/collections\/nimbus-desktop-experiments\/records//g';
+`find -type f -print0 | xargs -0 sed -i 's/https\:\/\/firefox\.settings\.services\.mozilla\.com\/v1\/buckets\/main\/collections\/nimbus-desktop-experiments\/records//g';
+`
 
-find -type f -print0 | xargs -0 sed -i 's/https\:\/\/firefox\.settings\.services\.mozilla\.com\/v1\/buckets\/main-preview\/collections\/search-config\/records//g';
+`find -type f -print0 | xargs -0 sed -i 's/https\:\/\/firefox\.settings\.services\.mozilla\.com\/v1\/buckets\/main-preview\/collections\/search-config\/records//g';`
 
-find -type f -print0 | xargs -0 sed -i 's/https\:\/\/firefox\.settings\.services\.mozilla\.com\/v1\/buckets\/main\/collections\/search-config\/records//g';
+`find -type f -print0 | xargs -0 sed -i 's/https\:\/\/firefox\.settings\.services\.mozilla\.com\/v1\/buckets\/main\/collections\/search-config\/records//g';
+`
 
-find -type f -print0 | xargs -0 sed -i 's/https\:\/\/firefox\.settings\.services\.mozilla\.com\/v1//g';
+`find -type f -print0 | xargs -0 sed -i 's/https\:\/\/firefox\.settings\.services\.mozilla\.com\/v1//g';
+`
 
-find -type f -print0 | xargs -0 sed -i 's/onecrl\.content-signature\.mozilla\.org//g';
+`find -type f -print0 | xargs -0 sed -i 's/onecrl\.content-signature\.mozilla\.org//g';
+`
 
-find -type f -print0 | xargs -0 sed -i 's/remote-settings\.content-signature\.mozilla\.org//g';
+`find -type f -print0 | xargs -0 sed -i 's/remote-settings\.content-signature\.mozilla\.org//g';
+`
 
-find -type f -print0 | xargs -0 sed -i 's/normandy\.content-signature\.mozilla\.org//g';
-
-
+`find -type f -print0 | xargs -0 sed -i 's/normandy\.content-signature\.mozilla\.org//g';
+`
 
 `Replace the omni.ja files`:
 
