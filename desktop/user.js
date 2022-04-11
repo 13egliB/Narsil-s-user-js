@@ -864,9 +864,6 @@ user_pref("services.blocklist.gfx.signer", "");
 // Enforce no referer spoofing
 user_pref("network.http.referer.spoofSource", true); // [DEFAULT: false]
 // -------------------------------------
-// Enforce CSP (Content Security Policy)
-user_pref("security.csp.enable", true); // [DEFAULT: true]
-// -------------------------------------
 // Enforce a security delay on some confirmation dialogs such as install, open/save
 user_pref("security.dialog_enable_delay", 1000); // [DEFAULT: 1000]
 // -------------------------------------
@@ -1150,4 +1147,8 @@ user_pref("app.update.background.scheduling.enabled", false);
 // FF97
 // Onions - replaced by new "allowlist"
 // user_pref("dom.securecontext.whitelist_onions", true);
-// 
+//
+// FF99
+// Enforce CSP (Content Security Policy)
+user_pref("security.csp.enable", true); // [DEFAULT: true]
+//
