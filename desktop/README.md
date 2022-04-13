@@ -18,19 +18,21 @@ Go to arkenfox web page in order to get more information about these changes.
 This user.js is a fork from the arkenfox project with a substantial divergence. It tries to avoid all the automatic connections even though security could be reduced slightly.
 For instance, OSCP is a privacy breach. Nevertheless, it is also a security feature. This user.js disables them as well as safebrowsing, automatic addons connections and so on. You will have to check manually addons updates in the related preferences section.
 
-However, one connection could not be blocked anymore:
+However, two connections could not be blocked anymore:
 
 * firefox.settings.services.mozilla.com
 
 https://bugzilla.mozilla.org/show_bug.cgi?id=1598562#c13
 
+* content-signature-2.cdn.mozilla.net
+
 [How to stop Firefox from making automatic connections](https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections)
 (Section "Automatic updates and Security/Login breach information")
 
-So you will have to include it to the host list of your OS.
+So you will have to include them to the host list of your OS.
 
 
-Nevertheless, consider installing Abrowser from Trisquel, Icecat, Iceweasel for Parabola or Librewolf. They lack that connection:
+Nevertheless, consider installing Abrowser from Trisquel, Icecat, Iceweasel for Parabola or Librewolf. They lack those connections:
 
 [Abrowser](https://archive.trisquel.info/trisquel/pool/main/f/firefox/?C=S;O=D)
 
