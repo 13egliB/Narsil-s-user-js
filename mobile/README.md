@@ -92,6 +92,7 @@ firefox.settings.services.mozilla.com
 
 https://bugzilla.mozilla.org/show_bug.cgi?id=1598562#c13
 
+content-signature-2.cdn.mozilla.net
 
 safebrowsing.googleapis.com, safebrowsing.google.com, malware-error.mozilla.com, phish-error.mozilla.com and developers.google.com (safebrowsing is active and not changeable)
 
@@ -139,4 +140,4 @@ See `LICENSE` for more details.
 
 ## Other mirrors
 
-https://git.nixnet.services/Narsil/mobile_user.js
+https://codeberg.org/Narsil/user.js/src/branch/main/mobile
