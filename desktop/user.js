@@ -173,6 +173,10 @@ user_pref("browser.contentblocking.report.endpoint_url", "");
 user_pref("browser.contentblocking.report.monitor.home_page_url", "");
 user_pref("browser.contentblocking.report.monitor.preferences_url", "");
 user_pref("browser.contentblocking.report.vpn.enabled", false);
+user_pref("browser.contentblocking.report.hide_vpn_banner", true);
+user_pref("browser.contentblocking.report.show_mobile_app", false);
+user_pref("browser.vpn_promo.enabled", false);
+user_pref("browser.promo.focus.enabled", false);
 // -------------------------------------
 // Block unwanted connections
 user_pref("app.feedback.baseURL", "");
