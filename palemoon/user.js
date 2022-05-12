@@ -483,8 +483,8 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 // Disable spoofing a referer
 // user_pref("network.http.referer.spoofSource", false);
 // -------------------------------------
-// Enable the DNT (Do Not Track) HTTP header
-user_pref("privacy.donottrackheader.enabled", false);
+// Disable Global Privacy Control feature
+user_pref("privacy.GPCheader.enabled", false);
 // -------------------------------------
 // Block authentication-locked cross-origin image subresources by default to prevent spurious auth prompts
 // user_pref("network.auth.subresource-http-img-XO-auth", true);
