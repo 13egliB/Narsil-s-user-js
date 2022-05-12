@@ -630,6 +630,9 @@ user_pref("browser.download.alwaysOpenPanel", false);
 // -------------------------------------
 // Disable adding downloads to the system's "recent documents" list
 user_pref("browser.download.manager.addToRecentDocs", false);
+// -------------------------------------
+// Enable user interaction for security by always asking how to handle new mimetypes [FF101+]
+user_pref("browser.download.always_ask_before_handling_new_types", true);
 //
 // EXTENSIONS
 //
@@ -949,12 +952,6 @@ user_pref("security.ssl3.rsa_aes_256_sha", false); // no PFS
 // user_pref("network.http.referer.defaultPolicy", 2); // [DEFAULT: 2]
 // user_pref("network.http.referer.defaultPolicy.pbmode", 2); // [DEFAULT: 2]
 // -------------------------------------
-// Disable HTTP2
-// user_pref("network.http.spdy.enabled", false);
-// user_pref("network.http.spdy.enabled.deps", false);
-// user_pref("network.http.spdy.enabled.http2", false);
-// user_pref("network.http.spdy.websockets", false); // [FF65+]
-// -------------------------------------
 // Disable HTTP Alternative Services [FF37+]
 // user_pref("network.http.altsvc.enabled", false);
 // user_pref("network.http.altsvc.oe", false); // [DEFAULT: false FF94+]
@@ -980,6 +977,7 @@ user_pref("extensions.systemAddon.update.url", ""); // [FF44+]
 user_pref("network.cookie.cookieBehavior", 5);
 user_pref("privacy.partition.network_state.ocsp_cache", true);
 user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true);
+user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true); // [FF100+]
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 user_pref("privacy.trackingprotection.cryptomining.enabled", true); // [DEFAULT: true]
@@ -1156,4 +1154,11 @@ user_pref("app.update.background.scheduling.enabled", false);
 // FF99
 // Enforce CSP (Content Security Policy)
 user_pref("security.csp.enable", true); // [DEFAULT: true]
+//
+// FF100
+// Disable HTTP2 - replaced by network.http.http2* prefs
+// user_pref("network.http.spdy.enabled", false);
+// user_pref("network.http.spdy.enabled.deps", false);
+// user_pref("network.http.spdy.enabled.http2", false);
+// user_pref("network.http.spdy.websockets", false); // [FF65+]
 //
