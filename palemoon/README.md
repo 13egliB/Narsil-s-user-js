@@ -31,6 +31,7 @@ Try changing "network.http.referer.XOriginPolicy" from 2 to 1
 
 * [Arkenfox user.js](https://github.com/arkenfox/user.js)
 * [Pale Moon Browser Spyware Mitigation Guide](https://spyware.neocities.org/guides/palemoon.html)
+* [Web browser](https://git.nuegia.net/webbrowser.git)
 * [Pale Moon Release Notes](https://www.palemoon.org/releasenotes.shtml)
 
 ## License
