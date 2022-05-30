@@ -907,9 +907,13 @@ user_pref("dom.w3c_pointer_events.enabled", false);
 // RFP ALTERNATIVES (NAVIGATOR / USER AGENT SPOOFING)
 // >>>>>>>>>>>>>>>>>>>>>
 // Navigator DOM object overrides
-user_pref("general.buildID.override", "");
-user_pref("browser.startup.homepage_override.buildID", "");
-user_pref("network.http.useragent.global_override", "");
+user_pref("general.buildID.override", ""); // (HIDDEN PREF)
+user_pref("browser.startup.homepage_override.buildID", ""); // (HIDDEN PREF)
+user_pref("network.http.useragent.global_override", ""); // (HIDDEN PREF)
+user_pref("general.appname.override", ""); // (HIDDEN PREF)
+user_pref("general.appversion.override", ""); // (HIDDEN PREF)
+user_pref("general.platform.override", ""); // (HIDDEN PREF)
+user_pref("general.oscpu.override", ""); // (HIDDEN PREF)
 user_pref("general.useragent.updates.url", "");
 // -------------------------------------
 // Set a preferred language for spellchecking, overrides document/element languages

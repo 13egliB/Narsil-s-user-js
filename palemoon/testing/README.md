@@ -7,4 +7,4 @@ For testing purposes only. Inspired in [Web Browser](https://git.nuegia.net/webb
 
 * No Javascript
 * No UserAgent
-* No buildID
+* No buildID, appname, appversion, platform nor oscpu
