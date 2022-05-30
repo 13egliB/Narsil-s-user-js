@@ -15,10 +15,12 @@ user.js file for configuring and hardening Pale Moon privacy and security.-
 This user.js is mainly based on arkenfox project (56 and recent version). 
 
 
-On the other hand, it tries to avoid all the automatic connections even though security could be reduced slightly (according to Spyware Watchdog website) For instance, OSCP is a privacy breach. Nevertheless, it is also a security feature.
+On the other hand, it avoids all the automatic connections even though security could be reduced slightly (according to Spyware Watchdog website) For instance, OSCP is a privacy breach. Nevertheless, it is also a security feature.
 
 
 It has also some changes in order to improve fingerprinting like canvas.poisondata and others.
+
+Finally, it tries to resemble Firefox ESR version (useragent, buildID, platform and so on)
 
 ## Known problems
 
@@ -42,4 +44,4 @@ See `LICENSE` for more details.
 
 ## Other mirrors
 
-https://git.nixnet.services/Narsil/palemoon_user.js
+https://codeberg.org/Narsil/user.js/src/branch/main/palemoon
