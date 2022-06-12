@@ -308,10 +308,6 @@ user_pref("network.trr.confirmationNS", "");
 // -------------------------------------
 // Disable location bar domain guessing
 user_pref("browser.fixup.alternate.enabled", false);
-// -------------------------------------
-// Display all parts of the url in the location bar
-user_pref("browser.urlbar.trimURLs", false);
-// -------------------------------------
 // Disable live search suggestions
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.urlbar.suggest.searches", false);
@@ -421,13 +417,6 @@ user_pref("security.OCSP.require", false);
 //
 // CERTS / HPKP (HTTP Public Key Pinning)
 //
-// Disable or limit SHA-1 certificates
-// 0 = allow all
-// 1 = block all
-// 3 = only allow locally-added roots (e.g. anti-virus) (default)
-// 4 = only allow locally-added roots or for certs in 2015 and earlier
-user_pref("security.pki.sha1_enforcement_level", 1);
-// -------------------------------------
 // Disable Windows 8.1's Microsoft Family Safety cert [FF50+] [WINDOWS]
 // 0=disable detecting Family Safety mode and importing the root
 // 1=only attempt to detect Family Safety mode (don't import the root)
@@ -674,10 +663,6 @@ user_pref("network.cookie.lifetimePolicy", 2);
 // -------------------------------------
 // Delete cache on exit [FF96+]
 // user_pref("privacy.clearsitedata.cache.enabled", true);
-// -------------------------------------
-// Set third-party cookies to session-only
-user_pref("network.cookie.thirdparty.sessionOnly", true);
-user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true); // [FF58+]
 //
 // SANITIZE ON SHUTDOWN : ALL OR NOTHING
 //
@@ -757,12 +742,6 @@ user_pref("browser.link.open_newwindow.restriction", 0);
 // -------------------------------------
 // Disable WebGL (Web Graphics Library)
 user_pref("webgl.disabled", true);
-// -------------------------------------
-// Enable URL query stripping
-user_pref("privacy.query_stripping.enabled", true);
-// -------------------------------------
-// Set the strip list for URL query stripping
-user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // OPTIONAL OPSEC
@@ -874,12 +853,6 @@ user_pref("network.http.referer.spoofSource", true); // [DEFAULT: false]
 // Enforce a security delay on some confirmation dialogs such as install, open/save
 user_pref("security.dialog_enable_delay", 1000); // [DEFAULT: 1000]
 // -------------------------------------
-// Enforce window.opener protection [FF65+]
-user_pref("dom.targetBlankNoOpener.enabled", true); // [DEFAULT: true]
-// -------------------------------------
-// Enforce "window.name" protection [FF82+]
-user_pref("privacy.window.name.update.enabled", true); // [DEFAULT: true]
-// -------------------------------------
 // Enforce Local Storage Next Generation (LSNG) [FF65+]
 user_pref("dom.storage.next_gen", true); // [DEFAULT: true FF92+]
 // -------------------------------------
@@ -895,13 +868,21 @@ user_pref("security.tls.version.enable-deprecated", false); // [DEFAULT: false]
 // Enforce disabling of Web Compatibility Reporter [FF56+]
 user_pref("extensions.webcompat-reporter.enabled", false); // [DEFAULT: false]
 // -------------------------------------
+// Disable SHA-1 certificates
+user_pref("security.pki.sha1_enforcement_level", 1); // [DEFAULT: 1 FF102+]
+// -------------------------------------
 // PrefsCleaner: prefsCleaner: reset items removed from arkenfox FF92+
+// user_pref("browser.urlbar.trimURLs", "");
 // user_pref("dom.caches.enabled", "");
 // user_pref("dom.storageManager.enabled", "");
 // user_pref("dom.storage_access.enabled", "");
+// user_pref("dom.targetBlankNoOpener.enabled", "");
+// user_pref("network.cookie.thirdparty.sessionOnly", "");
+// user_pref("network.cookie.thirdparty.nonsecureSessionOnly", "");
 // user_pref("privacy.firstparty.isolate.block_post_message", "");
 // user_pref("privacy.firstparty.isolate.restrict_opener_access", "");
 // user_pref("privacy.firstparty.isolate.use_site", "");
+// user_pref("privacy.window.name.update.enabled", "");
 // user_pref("security.insecure_connection_text.enabled", "");
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -976,6 +957,8 @@ user_pref("extensions.systemAddon.update.url", ""); // [FF44+]
 // Customize ETP settings
 user_pref("network.cookie.cookieBehavior", 5);
 user_pref("privacy.partition.network_state.ocsp_cache", true);
+user_pref("privacy.query_stripping.enabled", true); // [FF101+] [ETP FF102+]
+user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
 user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true);
 user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true); // [FF100+]
 user_pref("privacy.trackingprotection.enabled", true);
