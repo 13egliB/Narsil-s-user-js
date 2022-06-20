@@ -643,7 +643,7 @@ user_pref("extensions.webservice.discoverURL", "");
 // >>>>>>>>>>>>>>>>>>>>>
 //
 // Enable ETP Strict Mode [FF86+]
-user_pref("browser.contentblocking.category", "custom");
+user_pref("browser.contentblocking.category", "strict");
 // -------------------------------------
 // Disable ETP web compat features [FF93+]
 // user_pref("privacy.antitracking.enableWebcompat", false);
@@ -955,16 +955,16 @@ user_pref("extensions.systemAddon.update.url", ""); // [FF44+]
 // user_pref("privacy.donottrackheader.enabled", true);
 // -------------------------------------
 // Customize ETP settings
-user_pref("network.cookie.cookieBehavior", 5);
-user_pref("privacy.partition.network_state.ocsp_cache", true);
-user_pref("privacy.query_stripping.enabled", true); // [FF101+] [ETP FF102+]
+// user_pref("network.cookie.cookieBehavior", 5);
+// user_pref("privacy.partition.network_state.ocsp_cache", true);
+// user_pref("privacy.query_stripping.enabled", true); // [FF101+] [ETP FF102+]
 user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
-user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true);
-user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true); // [FF100+]
-user_pref("privacy.trackingprotection.enabled", true);
-user_pref("privacy.trackingprotection.socialtracking.enabled", true);
-user_pref("privacy.trackingprotection.cryptomining.enabled", true); // [DEFAULT: true]
-user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // [DEFAULT: true]
+// user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true);
+// user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true); // [FF100+]
+// user_pref("privacy.trackingprotection.enabled", true);
+// user_pref("privacy.trackingprotection.socialtracking.enabled", true);
+// user_pref("privacy.trackingprotection.cryptomining.enabled", true); // [DEFAULT: true]
+// user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // [DEFAULT: true]
 // -------------------------------------
 // Allow embedded tweets and Reddit posts. Don't do it!
 // user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com"); // [HIDDEN PREF]
