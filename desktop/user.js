@@ -806,6 +806,7 @@ user_pref("places.history.enabled", false);
 // -------------------------------------
 // Enable Site Isolation
 user_pref("fission.autostart", true);
+user_pref("gfx.webrender.all", true);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // OPTIONAL HARDENING
