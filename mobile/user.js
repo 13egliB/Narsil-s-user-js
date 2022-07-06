@@ -682,16 +682,7 @@ user_pref("privacy.partition.serviceWorkers", true);
 // SHUTDOWN & SANITIZING
 // >>>>>>>>>>>>>>>>>>>>>
 //
-// COOKIES + SITE DATA : ALLOWS EXCEPTIONS
-//
-// Delete cookies and site data on exit
-// 0=keep until they expire (default), 2=keep until you close Firefox
-user_pref("network.cookie.lifetimePolicy", 2);
-// -------------------------------------
-// Delete cache on exit [FF96+]
-// user_pref("privacy.clearsitedata.cache.enabled", true);
-//
-// SANITIZE ON SHUTDOWN : ALL OR NOTHING
+// SANITIZE ON SHUTDOWN : ALLOWS COOKIES + SITE DATA EXCEPTIONS FF102+
 //
 // Enable Firefox to clear items on shutdown
 user_pref("privacy.sanitize.sanitizeOnShutdown", true);
@@ -702,11 +693,16 @@ user_pref("privacy.clearOnShutdown.downloads", true); // [DEFAULT: true]
 user_pref("privacy.clearOnShutdown.formdata", true); // [DEFAULT: true]
 user_pref("privacy.clearOnShutdown.history", true); // [DEFAULT: true]
 user_pref("privacy.clearOnShutdown.sessions", true); // [DEFAULT: true]
-user_pref("privacy.clearOnShutdown.offlineApps", true); // [DEFAULT: false]
+user_pref("privacy.clearOnShutdown.offlineApps", true);
 user_pref("privacy.clearOnShutdown.cookies", true);
 // user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT: false]
 // -------------------------------------
-// Reset default items to clear with Ctrl-Shift-Del [SETUP-CHROME]
+// Delete cache on exit [FF96+]
+// user_pref("privacy.clearsitedata.cache.enabled", true);
+//
+// SANITIZE MANUAL: ALL OR NOTHING
+//
+// Reset default items to clear with Ctrl-Shift-Del
 user_pref("privacy.cpd.cache", true); // [DEFAULT: true]
 user_pref("privacy.cpd.formdata", true); // Form & Search History
 user_pref("privacy.cpd.history", true); // Browsing & Download History
@@ -789,7 +785,7 @@ user_pref("webgl.disabled", true);
 // user_pref("permissions.memory_only", true); // [HIDDEN PREF]
 // -------------------------------------
 // Disable intermediate certificate caching [FF41+] [RESTART]
-// user_pref("security.nocertdb", true); // [HIDDEN PREF]
+// user_pref("security.nocertdb", true); // [HIDDEN PREF in FF101 or lower]
 // -------------------------------------
 // Disable favicons in history and bookmarks
 user_pref("browser.chrome.site_icons", false);
@@ -882,9 +878,6 @@ user_pref("network.http.referer.spoofSource", true); // [DEFAULT: false]
 // Enforce a security delay on some confirmation dialogs such as install, open/save
 user_pref("security.dialog_enable_delay", 1000); // [DEFAULT: 1000]
 // -------------------------------------
-// Enforce Local Storage Next Generation (LSNG) [FF65+]
-user_pref("dom.storage.next_gen", true); // [DEFAULT: true FF92+]
-// -------------------------------------
 // Enforce no First Party Isolation [FF51+]
 user_pref("privacy.firstparty.isolate", true); // [DEFAULT: false]
 // -------------------------------------
@@ -947,7 +940,7 @@ user_pref("security.ssl3.rsa_aes_256_sha", false); // no PFS
 // user_pref("security.tls.version.max", 4);
 // -------------------------------------
 // Disable SSL session IDs [FF36+]
-// user_pref("security.ssl.disable_session_identifiers", true); // [HIDDEN PREF]
+// user_pref("security.ssl.disable_session_identifiers", true); // [HIDDEN PREF in FF101 or lower]
 // -------------------------------------
 // Onions
 // user_pref("dom.securecontext.allowlist_onions", true);
@@ -1188,6 +1181,21 @@ user_pref("security.csp.enable", true); // [DEFAULT: true]
 // user_pref("network.http.spdy.enabled.http2", false);
 // user_pref("network.http.spdy.websockets", false); // [FF65+]
 // -------------------------------------
+// FF102
+// Set when Firefox should prompt for the primary password
+// 0=once per session (default), 1=every time it's needed, 2=after n minutes
+user_pref("security.ask_for_password", 2);
+// -------------------------------------
+// Set how long in minutes Firefox should remember the primary password
+user_pref("security.password_lifetime", 5); // [DEFAULT: 30]
+// -------------------------------------
+// Delete cookies and site data on exit - replaced by sanitizeOnShutdown*
+// 0=keep until they expire (default), 2=keep until you close Firefox
+user_pref("network.cookie.lifetimePolicy", 2);
+// -------------------------------------
+// Enforce Local Storage Next Generation (LSNG) [FF65+]
+user_pref("dom.storage.next_gen", true); // [DEFAULT: true FF92+]
+// -------------------------------------                
 // Test user.js in about:config
 user_pref("_config.applied", true);
 //
