@@ -329,7 +329,7 @@ user_pref("network.trr.confirmationNS", "");
 // user_pref("keyword.enabled", false);
 // -------------------------------------
 // Disable location bar domain guessing
-user_pref("browser.fixup.alternate.enabled", false);
+user_pref("browser.fixup.alternate.enabled", false);; // [DEFAULT: false FF104+]
 // Disable live search suggestions
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.urlbar.suggest.searches", false);
@@ -448,8 +448,8 @@ user_pref("security.OCSP.require", false);
 // 2=detect Family Safety mode and import the root
 user_pref("security.family_safety.mode", 0);
 // -------------------------------------
-// Enable strict pinning
-// PKP (Public Key Pinning) 0=disabled, 1=allow user MiTM (such as your antivirus), 2=strict
+// Enable strict PKP (Public Key Pinning)
+// 0=disabled, 1=allow user MiTM (default; such as your antivirus), 2=strict
 user_pref("security.cert_pinning.enforcement_level", 2);
 // -------------------------------------
 // Disable CRLite [FF73+]
@@ -682,8 +682,16 @@ user_pref("privacy.partition.serviceWorkers", true);
 // SHUTDOWN & SANITIZING
 // >>>>>>>>>>>>>>>>>>>>>
 //
-// SANITIZE ON SHUTDOWN : ALLOWS COOKIES + SITE DATA EXCEPTIONS FF102+
+// COOKIES + SITE DATA : ALLOWS EXCEPTIONS
 //
+// Delete cookies and site data on exit
+// 0=keep until they expire (default), 2=keep until you close Firefox
+user_pref("network.cookie.lifetimePolicy", 2);
+// -------------------------------------
+// Delete cache on exit [FF96+]
+// user_pref("privacy.clearsitedata.cache.enabled", true);
+//
+// SANITIZE ON SHUTDOWN : ALL OR NOTHING
 // Enable Firefox to clear items on shutdown
 user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 // -------------------------------------
@@ -693,12 +701,9 @@ user_pref("privacy.clearOnShutdown.downloads", true); // [DEFAULT: true]
 user_pref("privacy.clearOnShutdown.formdata", true); // [DEFAULT: true]
 user_pref("privacy.clearOnShutdown.history", true); // [DEFAULT: true]
 user_pref("privacy.clearOnShutdown.sessions", true); // [DEFAULT: true]
-user_pref("privacy.clearOnShutdown.offlineApps", true);
+user_pref("privacy.clearOnShutdown.offlineApps", true); // [DEFAULT: false]
 user_pref("privacy.clearOnShutdown.cookies", true);
-// user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT: false]
-// -------------------------------------
-// Delete cache on exit [FF96+]
-// user_pref("privacy.clearsitedata.cache.enabled", true);
+// user_pref("privacy.clearOnShutdown.siteSettings", false);
 //
 // SANITIZE MANUAL: ALL OR NOTHING
 //
@@ -711,8 +716,8 @@ user_pref("privacy.cpd.sessions", true); // [DEFAULT: true]
 user_pref("privacy.cpd.offlineApps", true); // [DEFAULT: false]
 user_pref("privacy.cpd.cookies", true);
 // user_pref("privacy.cpd.downloads", true); // not used
-// user_pref("privacy.cpd.passwords", false); // [DEFAULT: false] not listed
-// user_pref("privacy.cpd.siteSettings", false); // [DEFAULT: false]
+// user_pref("privacy.cpd.passwords", false);
+// user_pref("privacy.cpd.siteSettings", false);
 // -------------------------------------
 // Clear Session Restore data when sanitizing on shutdown or manually [FF34+]
 // user_pref("privacy.clearOnShutdown.openWindows", true);
@@ -1188,10 +1193,6 @@ user_pref("security.ask_for_password", 2);
 // -------------------------------------
 // Set how long in minutes Firefox should remember the primary password
 user_pref("security.password_lifetime", 5); // [DEFAULT: 30]
-// -------------------------------------
-// Delete cookies and site data on exit - replaced by sanitizeOnShutdown*
-// 0=keep until they expire (default), 2=keep until you close Firefox
-user_pref("network.cookie.lifetimePolicy", 2);
 // -------------------------------------
 // Enforce Local Storage Next Generation (LSNG) [FF65+]
 user_pref("dom.storage.next_gen", true); // [DEFAULT: true FF92+]

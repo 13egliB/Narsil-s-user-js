@@ -117,6 +117,12 @@ javascript.options.baselinejit
 javascript.options.native_regexp
 
 
+`Bugs with HTTP sites?`
+
+Due to fission is enabled, HTTP websites don't load when HTTPS only mode is activated . Consider disabling it. There are also issues with self signed certificates in HTTPS webs.
+
+
+
 ## Thanks
 
 I really thank the following authors:
