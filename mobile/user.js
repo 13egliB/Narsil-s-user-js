@@ -69,6 +69,8 @@ user_pref("geo.provider.network.url", "");
 user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
 user_pref("geo.provider.use_corelocation", false); // [MAC]
 user_pref("geo.provider.use_gpsd", false); // [LINUX]
+user_pref("geo.provider.geoclue.always_high_accuracy", false); // [LINUX]
+user_pref("geo.provider.use_geoclue", false); // [LINUX]
 // -------------------------------------
 // Disable region updates
 user_pref("browser.region.network.url", ""); // [FF78+]
