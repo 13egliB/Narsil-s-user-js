@@ -70,7 +70,7 @@ user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
 user_pref("geo.provider.use_corelocation", false); // [MAC]
 user_pref("geo.provider.use_gpsd", false); // [LINUX]
 user_pref("geo.provider.geoclue.always_high_accuracy", false); // [LINUX]
-user_pref("geo.provider.use_geoclue", false); // [LINUX]
+user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 // -------------------------------------
 // Disable region updates
 user_pref("browser.region.network.url", ""); // [FF78+]
@@ -345,7 +345,7 @@ user_pref("browser.urlbar.speculativeConnect.enabled", false);
 // -------------------------------------
 // Disable location bar leaking single words to a DNS provider **after searching** [FF78+]
 // 0=never resolve single words, 1=heuristic (default), 2=always resolve
-user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
+user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0); // [DEFAULT: 0 FF104+]
 // -------------------------------------
 // Disable location bar contextual suggestions [FF92+]
 user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false); // [FF95+]
@@ -561,14 +561,6 @@ user_pref("media.mediadrm-widevinecdm.visible", false); // [DEFAULT: true]
 // Disable all DRM content (EME: Encryption Media Extension)
 user_pref("media.eme.enabled", false);
 user_pref("browser.eme.ui.enabled", false);
-// -------------------------------------
-// Disable autoplay of HTML5 media [FF63+]
-// 0=Allow all, 1=Block non-muted media (default), 5=Block all
-// user_pref("media.autoplay.default", 5);
-// -------------------------------------
-// Disable autoplay of HTML5 media if you interacted with the site [FF78+]
-// 0=sticky (default), 1=transient, 2=user
-user_pref("media.autoplay.blocking_policy", 2);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // DOM (DOCUMENT OBJECT MODEL)
@@ -684,30 +676,32 @@ user_pref("privacy.partition.serviceWorkers", true);
 // SHUTDOWN & SANITIZING
 // >>>>>>>>>>>>>>>>>>>>>
 //
-// COOKIES + SITE DATA : ALLOWS EXCEPTIONS
-//
-// Delete cookies and site data on exit
-// 0=keep until they expire (default), 2=keep until you close Firefox
-user_pref("network.cookie.lifetimePolicy", 2);
-// -------------------------------------
-// Delete cache on exit [FF96+]
-// user_pref("privacy.clearsitedata.cache.enabled", true);
-//
-// SANITIZE ON SHUTDOWN : ALL OR NOTHING
 // Enable Firefox to clear items on shutdown
 user_pref("privacy.sanitize.sanitizeOnShutdown", true);
-// -------------------------------------
+//
+// SANITIZE ON SHUTDOWN: IGNORES "ALLOW" SITE EXCEPTIONS
+//
 // Set/enforce what items to clear on shutdown [SETUP-CHROME]
 user_pref("privacy.clearOnShutdown.cache", true);
 user_pref("privacy.clearOnShutdown.downloads", true); // [DEFAULT: true]
 user_pref("privacy.clearOnShutdown.formdata", true); // [DEFAULT: true]
 user_pref("privacy.clearOnShutdown.history", true); // [DEFAULT: true]
 user_pref("privacy.clearOnShutdown.sessions", true); // [DEFAULT: true]
-user_pref("privacy.clearOnShutdown.offlineApps", true); // [DEFAULT: false]
-user_pref("privacy.clearOnShutdown.cookies", true);
-// user_pref("privacy.clearOnShutdown.siteSettings", false);
+// user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT: false]
+// -------------------------------------
+// Set Session Restore to clear on shutdown [FF34+]
+// user_pref("privacy.clearOnShutdown.openWindows", true);
 //
-// SANITIZE MANUAL: ALL OR NOTHING
+// SANITIZE ON SHUTDOWN: RESPECTS "ALLOW" SITE EXCEPTIONS FF103+
+//
+// Set "Cookies" and "Site Data" to clear on shutdown
+user_pref("privacy.clearOnShutdown.cookies", true); // Cookies
+user_pref("privacy.clearOnShutdown.offlineApps", true); // Site Data
+// -------------------------------------
+// Set cache to clear on exit [FF96+]
+// user_pref("privacy.clearsitedata.cache.enabled", true);
+//
+// SANITIZE MANUAL: IGNORES "ALLOW" SITE EXCEPTIONS
 //
 // Reset default items to clear with Ctrl-Shift-Del
 user_pref("privacy.cpd.cache", true); // [DEFAULT: true]
@@ -718,6 +712,7 @@ user_pref("privacy.cpd.sessions", true); // [DEFAULT: true]
 user_pref("privacy.cpd.offlineApps", true); // [DEFAULT: false]
 user_pref("privacy.cpd.cookies", true);
 // user_pref("privacy.cpd.downloads", true); // not used
+// user_pref("privacy.cpd.openWindows", false); // Session Restore
 // user_pref("privacy.cpd.passwords", false);
 // user_pref("privacy.cpd.siteSettings", false);
 // -------------------------------------
@@ -758,7 +753,7 @@ user_pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN PREF]
 user_pref("browser.startup.blankWindow", false);
 // -------------------------------------
 // Disable using system colors
-user_pref("browser.display.use_system_colors", false); // [DEFAULT false NON-WINDOWS]
+user_pref("browser.display.use_system_colors", false); // [DEFAULT: false NON-WINDOWS]
 // -------------------------------------
 // Enforce non-native widget theme
 user_pref("widget.non-native-theme.enabled", true); // [DEFAULT: true]
@@ -897,9 +892,6 @@ user_pref("security.tls.version.enable-deprecated", false); // [DEFAULT: false]
 // Enforce disabling of Web Compatibility Reporter [FF56+]
 user_pref("extensions.webcompat-reporter.enabled", false); // [DEFAULT: false]
 // -------------------------------------
-// Disable SHA-1 certificates
-user_pref("security.pki.sha1_enforcement_level", 1); // [DEFAULT: 1 FF102+]
-// -------------------------------------
 // PrefsCleaner: prefsCleaner: reset items removed from arkenfox FF92+
 // user_pref("browser.urlbar.trimURLs", "");
 // user_pref("dom.caches.enabled", "");
@@ -984,7 +976,7 @@ user_pref("extensions.systemAddon.update.url", ""); // [FF44+]
 // user_pref("privacy.donottrackheader.enabled", true);
 // -------------------------------------
 // Customize ETP settings
-user_pref("network.cookie.cookieBehavior", 5);
+user_pref("network.cookie.cookieBehavior", 5); // [DEFAULT: 5 FF103+]
 user_pref("privacy.partition.network_state.ocsp_cache", true);
 user_pref("privacy.query_stripping.enabled", true); // [FF101+] [ETP FF102+]
 user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
@@ -1111,6 +1103,13 @@ user_pref("accessibility.typeaheadfind", false); // enable "Find As You Type"
 user_pref("clipboard.autocopy", false); // disable autocopy default [LINUX]
 user_pref("layout.spellcheckDefault", 0); // 0=none, 1-multi-line, 2=multi-line & single-line
 //
+// HTML5 MEDIA AUTOPLAY
+//
+// user_pref("media.autoplay.default", 5); // [FF63+]
+// 0=Allow all, 1=Block non-muted media (default), 5=Block all
+// user_pref("media.autoplay.blocking_policy", 2); // disable autoplay if you interacted with the site [FF78+]
+// 0=sticky (default), 1=transient, 2=user
+//
 // UX BEHAVIOR
 //
 // user_pref("browser.backspace_action", 2); // 0=previous page, 1=scroll up, 2=do nothing
@@ -1198,7 +1197,15 @@ user_pref("security.password_lifetime", 5); // [DEFAULT: 30]
 // -------------------------------------
 // Enforce Local Storage Next Generation (LSNG) [FF65+]
 user_pref("dom.storage.next_gen", true); // [DEFAULT: true FF92+]
-// -------------------------------------                
+// -------------------------------------
+// FF103
+// Delete cookies and site data on exit - replaced by sanitizeOnShutdown
+// 0=keep until they expire (default), 2=keep until you close Firefox
+user_pref("network.cookie.lifetimePolicy", 2);
+// -------------------------------------   
+// Disable SHA-1 certificates
+user_pref("security.pki.sha1_enforcement_level", 1); // [DEFAULT: 1 FF102+]
+// -------------------------------------
 // Test user.js in about:config
 user_pref("_config.applied", true);
 //
