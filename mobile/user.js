@@ -1036,7 +1036,7 @@ user_pref("media.webspeech.synth.enabled", false);
 // user_pref("general.buildID.override", "20181001000000"); // [HIDDEN PREF]
 // user_pref("general.oscpu.override", ""); // [HIDDEN PREF]
 // user_pref("general.platform.override", ""); // [HIDDEN PREF]
-user_pref("general.useragent.override", "Mozilla/5.0 (Android 10; Mobile; rv:91.0) Gecko/91.0 Firefox/91.0"); // [HIDDEN PREF]
+// user_pref("general.useragent.override", "Mozilla/5.0 (Android 10; Mobile; rv:102.0) Gecko/102.0 Firefox/102.0"); // [HIDDEN PREF]
 // user_pref("ui.use_standins_for_native_colors", true);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
