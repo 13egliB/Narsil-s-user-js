@@ -909,7 +909,7 @@ user_pref("dom.w3c_pointer_events.enabled", false);
 // Navigator DOM object overrides. Using Tor browser values.
 user_pref("general.buildID.override", "20181001000000"); // (HIDDEN PREF)
 user_pref("browser.startup.homepage_override.buildID", "20100101"); // (HIDDEN PREF)
-user_pref("network.http.useragent.global_override", "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0"); // (HIDDEN PREF)
+user_pref("network.http.useragent.global_override", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0"); // (HIDDEN PREF)
 user_pref("general.appname.override", "Netscape"); // (HIDDEN PREF)
 user_pref("general.appversion.override", "5.0 (X11)"); // (HIDDEN PREF)
 user_pref("general.platform.override", "Linux x86_64"); // (HIDDEN PREF)
