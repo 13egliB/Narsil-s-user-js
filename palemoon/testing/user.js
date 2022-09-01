@@ -742,6 +742,10 @@ user_pref("browser.download.hide_plugins_without_extensions", false);
 // Enforce CSP (Content Security Policy)
 user_pref("security.csp.enable", true);
 // -------------------------------------
+// Disable CSP reports
+user_pref("security.csp.speccompliant", false);
+user_pref("security.signed_content.CSP.default", "");
+// -------------------------------------
 // Disable JAR from opening Unsafe File Types
 user_pref("network.jar.open-unsafe-types", false);
 // -------------------------------------
