@@ -357,13 +357,6 @@ user_pref("browser.urlbar.suggest.engines", false);
 // Disable search and form history
 user_pref("browser.formfill.enable", false);
 // -------------------------------------
-// Disable Form Autofill
-user_pref("extensions.formautofill.addresses.enabled", false); // [FF55+]
-user_pref("extensions.formautofill.available", "off"); // [FF56+]
-user_pref("extensions.formautofill.creditCards.available", false); // [FF57+]
-user_pref("extensions.formautofill.creditCards.enabled", false); // [FF56+]
-user_pref("extensions.formautofill.heuristics.enabled", false); // [FF55+]
-// -------------------------------------
 // Disable coloring of visited links
 user_pref("layout.css.visited_links_enabled", false);
 //
@@ -500,9 +493,6 @@ user_pref("browser.xul.error_pages.expert_bad_cert", true);
 // FONTS
 // >>>>>>>>>>>>>>>>>>>>>
 //
-// Disable rendering of SVG OpenType fonts
-user_pref("gfx.font_rendering.opentype_svg.enabled", false);
-// -------------------------------------
 // Limit font visibility (Windows, Mac, some Linux) [FF94+]
 // 1=only base system fonts, 2=also fonts from optional language packs, 3=also user-installed fonts
 user_pref("layout.css.font-visibility.private", 1);
@@ -670,7 +660,10 @@ user_pref("browser.contentblocking.category", "strict");
 // user_pref("privacy.antitracking.enableWebcompat", false);
 // -------------------------------------
 // Enable state partitioning of service workers [FF96+]
-user_pref("privacy.partition.serviceWorkers", true);
+user_pref("privacy.partition.serviceWorkers", true); // [DEFAULT: true FF105+]
+// -------------------------------------
+// Enable APS (Always Partitioning Storage) [FF104+]
+user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // SHUTDOWN & SANITIZING
@@ -830,6 +823,11 @@ user_pref("places.history.enabled", false);
 // 0=desktop, 1=downloads (default), 2=last used
 // user_pref("browser.download.folderList", 2);
 // -------------------------------------
+// Disable Form Autofill
+user_pref("extensions.formautofill.addresses.enabled", false); // [FF55+]
+user_pref("extensions.formautofill.creditCards.enabled", false); // [FF56+]
+user_pref("extensions.formautofill.heuristics.enabled", false); // [FF55+]
+// -------------------------------------
 // Enable Site Isolation
 user_pref("fission.autostart", true);
 user_pref("gfx.webrender.all", true);
@@ -857,6 +855,9 @@ user_pref("javascript.options.jit_trustedprincipals", true); // [FF75+] [HIDDEN 
 // -------------------------------------
 // Disable WebAssembly [FF52+]
 user_pref("javascript.options.wasm", false);
+// -------------------------------------
+// Disable rendering of SVG OpenType fonts
+user_pref("gfx.font_rendering.opentype_svg.enabled", false);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // DON'T TOUCH
@@ -892,7 +893,7 @@ user_pref("security.tls.version.enable-deprecated", false); // [DEFAULT: false]
 // Enforce disabling of Web Compatibility Reporter [FF56+]
 user_pref("extensions.webcompat-reporter.enabled", false); // [DEFAULT: false]
 // -------------------------------------
-// PrefsCleaner: prefsCleaner: reset items removed from arkenfox FF92+
+// PrefsCleaner: reset items removed from arkenfox FF92+
 // user_pref("browser.urlbar.trimURLs", "");
 // user_pref("dom.caches.enabled", "");
 // user_pref("dom.storageManager.enabled", "");
@@ -905,6 +906,12 @@ user_pref("extensions.webcompat-reporter.enabled", false); // [DEFAULT: false]
 // user_pref("privacy.firstparty.isolate.use_site", "");
 // user_pref("privacy.window.name.update.enabled", "");
 // user_pref("security.insecure_connection_text.enabled", "");
+// -------------------------------------
+// PrefsCleaner: reset items removed from arkenfox FF102+
+// user_pref("extensions.formautofill.available", "");
+// user_pref("extensions.formautofill.addresses.supported", "");
+// user_pref("extensions.formautofill.creditCards.available", "");
+// user_pref("extensions.formautofill.creditCards.supported", "");
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // DON'T BOTHER
