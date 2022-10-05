@@ -33,24 +33,10 @@ user_pref("browser.startup.homepage", "about:blank");
 // Set NEWTAB page
 // true=Activity Stream (default), false=blank page
 user_pref("browser.newtabpage.enabled", false);
-user_pref("browser.newtab.preload", false);
 // -------------------------------------
-// Disable some Activity Stream items
-user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
-user_pref("browser.newtabpage.activity-stream.telemetry", false);
-user_pref("browser.newtabpage.activity-stream.feeds.snippets", false); // [DEFAULT: false]
-user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
-user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
-user_pref("browser.newtabpage.activity-stream.showSponsored", false);
-user_pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", false); // [FF66+]
-user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // [FF83+]
-user_pref("browser.newtabpage.activity-stream.showSearch", false);
-user_pref("browser.newtabpage.activity-stream.showTopSites", false);
-user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
-user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
-user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
-user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
-user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
+// Disable sponsored content on Firefox Home (Activity Stream)
+user_pref("browser.newtabpage.activity-stream.showSponsored", false); // [FF58+] Pocket > Sponsored Stories
+user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // [FF83+] Sponsored shortcuts
 // -------------------------------------
 // Clear default topsites
 user_pref("browser.newtabpage.activity-stream.default.sites", "");
@@ -126,6 +112,10 @@ user_pref("toolkit.coverage.endpoint.base", "");
 // -------------------------------------
 // Disable PingCentre telemetry (used in several System Add-ons) [FF57+]
 user_pref("browser.ping-centre.telemetry", false);
+// -------------------------------------
+// Disable Firefox Home (Activity Stream) telemetry
+user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
+user_pref("browser.newtabpage.activity-stream.telemetry", false);
 //
 // STUDIES
 //
@@ -390,7 +380,7 @@ user_pref("signon.formlessCapture.enabled", false);
 user_pref("network.auth.subresource-http-auth-allow", 1);
 // -------------------------------------
 // Enforce no automatic authentication on Microsoft sites [FF91+] [WINDOWS 10+]
-user_pref("network.http.windows-sso.enabled", false); // [DEFAULT: false]
+// user_pref("network.http.windows-sso.enabled", false); // [DEFAULT: false]
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // DISK AVOIDANCE
@@ -406,9 +396,6 @@ user_pref("media.memory_cache_max_size", 65536);
 // Disable storing extra session data [SETUP-CHROME]
 // 0=everywhere, 1=unencrypted sites, 2=nowhere
 user_pref("browser.sessionstore.privacy_level", 2);
-// -------------------------------------
-// Set the minimum interval between session save operations
-user_pref("browser.sessionstore.interval", 30000); // [DEFAULT: 15000]
 // -------------------------------------
 // Disable automatic Firefox start and session restore after reboot [FF62+] [WINDOWS]
 user_pref("toolkit.winRegisterApplicationRestart", false);
@@ -662,8 +649,9 @@ user_pref("browser.contentblocking.category", "strict");
 // Enable state partitioning of service workers [FF96+]
 user_pref("privacy.partition.serviceWorkers", true); // [DEFAULT: true FF105+]
 // -------------------------------------
-// Enable APS (Always Partitioning Storage) [FF104+]
-user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true);
+// Enable APS (Always Partitioning Storage)
+user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true); // [FF104+]
+user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false); // [FF105+]
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // SHUTDOWN & SANITIZING
@@ -908,6 +896,9 @@ user_pref("extensions.webcompat-reporter.enabled", false); // [DEFAULT: false]
 // user_pref("security.insecure_connection_text.enabled", "");
 // -------------------------------------
 // PrefsCleaner: reset items removed from arkenfox FF102+
+// user_pref("browser.newtab.preload", "");
+// user_pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", "");
+// user_pref("browser.newtabpage.activity-stream.feeds.snippets", "");
 // user_pref("extensions.formautofill.available", "");
 // user_pref("extensions.formautofill.addresses.supported", "");
 // user_pref("extensions.formautofill.creditCards.available", "");
@@ -1067,7 +1058,6 @@ user_pref("full-screen-api.warning.delay", 0);
 user_pref("full-screen-api.warning.timeout", 0);
 user_pref("browser.warnOnQuit", false);
 //
-//
 // UPDATES
 //
 // Disable auto-INSTALLING Firefox updates [NON-WINDOWS]
@@ -1110,6 +1100,10 @@ user_pref("accessibility.typeaheadfind", false); // enable "Find As You Type"
 user_pref("clipboard.autocopy", false); // disable autocopy default [LINUX]
 user_pref("layout.spellcheckDefault", 0); // 0=none, 1-multi-line, 2=multi-line & single-line
 //
+// FIREFOX HOME CONTENT
+user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false); // Recommended by Pocket
+user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
+//
 // HTML5 MEDIA AUTOPLAY
 //
 // user_pref("media.autoplay.default", 5); // [FF63+]
@@ -1141,6 +1135,7 @@ user_pref("reader.parse-on-load.enabled", false); // Reader View
 // user_pref("browser.bookmarks.max_backups", 2);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false); // disable CFR [FF67+]
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false); // disable CFR [FF67+]
+user_pref("browser.sessionstore.interval", 30000); // minimum interval between session save operations
 user_pref("network.manage-offline-status", false);
 // user_pref("xpinstall.signatures.required", false); // enforced extension signing (Nightly/ESR)
 //
