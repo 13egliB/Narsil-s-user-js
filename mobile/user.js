@@ -349,6 +349,9 @@ user_pref("browser.formfill.enable", false);
 // -------------------------------------
 // Disable coloring of visited links
 user_pref("layout.css.visited_links_enabled", false);
+// -------------------------------------
+// Disable merino
+user_pref("browser.urlbar.merino.enabled", false);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // PASSWORDS
@@ -1103,6 +1106,11 @@ user_pref("layout.spellcheckDefault", 0); // 0=none, 1-multi-line, 2=multi-line 
 // FIREFOX HOME CONTENT
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false); // Recommended by Pocket
 user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
+user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
+user_pref("browser.newtabpage.activity-stream.showSearch", false);
+user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
+user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
+user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
 //
 // HTML5 MEDIA AUTOPLAY
 //
@@ -1129,6 +1137,7 @@ user_pref("extensions.pocket.enabled", false); // Pocket Account [FF46+]
 user_pref("extensions.screenshots.disabled", true); // [FF55+]
 user_pref("identity.fxaccounts.enabled", false); // Firefox Accounts & Sync [FF60+] [RESTART]
 user_pref("reader.parse-on-load.enabled", false); // Reader View
+user_pref("browser.tabs.firefox-view", false); // Firefox-view
 //
 // OTHER
 //
