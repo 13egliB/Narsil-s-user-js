@@ -59,7 +59,7 @@ user_pref("geo.provider.geoclue.always_high_accuracy", false); // [LINUX]
 user_pref("geo.provider.use_geoclue", false); [FF102+] [LINUX]
 // -------------------------------------
 // Disable region updates
-user_pref("browser.region.network.url", ""); // [FF78+]
+user_pref("browser.region.network.url", ""); // [FF78+] Defense-in-depth
 user_pref("browser.region.update.enabled", false); // [FF79+]
 // -------------------------------------
 // Set search region
@@ -430,7 +430,7 @@ user_pref("security.pki.crlite_mode", 0);
 // MIXED CONTENT
 //
 // Disable insecure passive content (such as images) on https pages [SETUP-WEB]
-user_pref("security.mixed_content.block_display_content", true);
+// user_pref("security.mixed_content.block_display_content", true); // Defense-in-depth
 // -------------------------------------
 // Enable HTTPS-Only mode in all windows [FF76+]
 user_pref("dom.security.https_only_mode", true); // [FF76+]
@@ -518,9 +518,6 @@ user_pref("browser.eme.ui.enabled", false);
 // Prevent scripts from moving and resizing open windows
 user_pref("dom.disable_window_move_resize", true);
 // -------------------------------------
-// Block popup windows
-user_pref("dom.disable_open_during_load", true);
-// -------------------------------------
 // Limit events that can cause a popup [SETUP-WEB]
 user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
 //
@@ -542,7 +539,7 @@ user_pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN PREF]
 // -------------------------------------
 // Disable UITour backend so there is no chance that a remote page can use it
 user_pref("browser.uitour.enabled", false);
-user_pref("browser.uitour.url", "");
+user_pref("browser.uitour.url", ""); // Defense-in-depth
 // -------------------------------------
 // Reset remote debugging to disabled
 user_pref("devtools.debugger.remote-enabled", false); // [DEFAULT: false]
@@ -563,7 +560,7 @@ user_pref("webchannel.allowObject.urlWhitelist", "");
 // Use Punycode in Internationalized Domain Names to eliminate possible spoofing
 user_pref("network.IDN_show_punycode", true);
 // -------------------------------------
-// Enforce PDFJS, disable PDFJS scripting [SETUP-CHROME]
+// Enforce PDFJS, disable PDFJS scripting
 user_pref("pdfjs.disabled", false); // [DEFAULT: false]
 user_pref("pdfjs.enableScripting", false); // [FF86+]
 // -------------------------------------
@@ -616,8 +613,8 @@ user_pref("browser.contentblocking.category", "strict");
 user_pref("privacy.partition.serviceWorkers", true); // [DEFAULT: true FF105+]
 // -------------------------------------
 // Enable APS (Always Partitioning Storage)
-user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true); // [FF104+]
-user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false); // [FF105+]
+user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true); // [FF104+] [DEFAULT: true FF109+}
+user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false); // [FF105+] [DEFAULT: false FF109+]
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // SHUTDOWN & SANITIZING
@@ -734,7 +731,7 @@ user_pref("webgl.disabled", true);
 // user_pref("permissions.memory_only", true); // [HIDDEN PREF]
 // -------------------------------------
 // Disable intermediate certificate caching [FF41+] [RESTART]
-// user_pref("security.nocertdb", true); // [HIDDEN PREF in FF101 or lower]
+// user_pref("security.nocertdb", true); //
 // -------------------------------------
 // Disable favicons in history and bookmarks
 user_pref("browser.chrome.site_icons", false);
@@ -853,6 +850,7 @@ user_pref("extensions.webcompat-reporter.enabled", false); // [DEFAULT: false]
 // user_pref("browser.ssl_override_behavior", "");
 // user_pref("devtools.chrome.enabled", "");
 // user_pref("dom.disable_beforeunload", "");
+// user_pref("dom.disable_open_during_load", "");
 // user_pref("extensions.formautofill.available", "");
 // user_pref("extensions.formautofill.addresses.supported", "");
 // user_pref("extensions.formautofill.creditCards.available", "");
@@ -876,21 +874,21 @@ user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.xr", 2); // Virtual Reality
 // -------------------------------------
 // Disable non-modern cipher suites
-user_pref("security.ssl3.ecdhe_ecdsa_aes_256_sha", false);
-user_pref("security.ssl3.ecdhe_ecdsa_aes_128_sha", false);
-user_pref("security.ssl3.ecdhe_rsa_aes_128_sha", false);
-user_pref("security.ssl3.ecdhe_rsa_aes_256_sha", false);
-user_pref("security.ssl3.rsa_aes_128_gcm_sha256", false); // no PFS
-user_pref("security.ssl3.rsa_aes_256_gcm_sha384", false); // no PFS
-user_pref("security.ssl3.rsa_aes_128_sha", false); // no PFS
-user_pref("security.ssl3.rsa_aes_256_sha", false); // no PFS
+// user_pref("security.ssl3.ecdhe_ecdsa_aes_128_sha", false); // [DEFAULT: false FF109+]
+// user_pref("security.ssl3.ecdhe_ecdsa_aes_256_sha", false); // [DEFAULT: false FF109+]
+// user_pref("security.ssl3.ecdhe_rsa_aes_128_sha", false);
+// user_pref("security.ssl3.ecdhe_rsa_aes_256_sha", false);
+// user_pref("security.ssl3.rsa_aes_128_gcm_sha256", false); // no PFS
+// user_pref("security.ssl3.rsa_aes_256_gcm_sha384", false); // no PFS
+// user_pref("security.ssl3.rsa_aes_128_sha", false); // no PFS
+// user_pref("security.ssl3.rsa_aes_256_sha", false); // no PFS
 // -------------------------------------
 // Control TLS versions
 // user_pref("security.tls.version.min", 3); // [DEFAULT: 3]
 // user_pref("security.tls.version.max", 4);
 // -------------------------------------
 // Disable SSL session IDs [FF36+]
-// user_pref("security.ssl.disable_session_identifiers", true); // [HIDDEN PREF in FF101 or lower]
+// user_pref("security.ssl.disable_session_identifiers", true);
 // -------------------------------------
 // Onions
 // user_pref("dom.securecontext.allowlist_onions", true);
