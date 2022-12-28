@@ -518,7 +518,7 @@ user_pref("browser.eme.ui.enabled", false);
 // Prevent scripts from moving and resizing open windows
 user_pref("dom.disable_window_move_resize", true);
 // -------------------------------------
-// Limit events that can cause a popup [SETUP-WEB]
+// Limit events that can cause a pop-up [SETUP-WEB]
 user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -837,7 +837,7 @@ user_pref("privacy.firstparty.isolate", false); // [DEFAULT: false]
 // Enforce SmartBlock shims [FF81+]
 user_pref("extensions.webcompat.enable_shims", true); // [DEFAULT: true]
 // -------------------------------------
-// Enforce/reset TLS 1.0/1.1 downgrades to session only
+// Enforce no TLS 1.0/1.1 downgrades
 user_pref("security.tls.version.enable-deprecated", false); // [DEFAULT: false]
 // -------------------------------------
 // Enforce disabling of Web Compatibility Reporter [FF56+]
