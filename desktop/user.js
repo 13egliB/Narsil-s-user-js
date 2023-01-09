@@ -1038,7 +1038,6 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited"
 //
 // UX FEATURES
 //
-user_pref("browser.messaging-system.whatsNewPanel.enabled", false); // What's New toolbar icon [FF69+]
 user_pref("extensions.pocket.enabled", false); // Pocket Account [FF46+]
 user_pref("extensions.screenshots.disabled", true); // [FF55+]
 user_pref("identity.fxaccounts.enabled", false); // Firefox Accounts & Sync [FF60+] [RESTART]
@@ -1050,6 +1049,8 @@ user_pref("browser.tabs.firefox-view", false); // Firefox-view
 // user_pref("browser.bookmarks.max_backups", 2);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false); // disable CFR [FF67+]
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false); // disable CFR [FF67+]
+user_pref("browser.messaging-system.whatsNewPanel.enabled", false); // What's New toolbar icon [FF69+]
+user_pref("browser.urlbar.showSearchTerms.enabled", false);
 user_pref("browser.sessionstore.interval", 30000); // minimum interval between session save operations
 user_pref("network.manage-offline-status", false);
 user_pref("browser.preferences.moreFromMozilla", false);
