@@ -544,9 +544,6 @@ user_pref("browser.eme.ui.enabled", false);
 //
 // Prevent scripts from moving and resizing open windows
 user_pref("dom.disable_window_move_resize", true);
-// -------------------------------------
-// Limit events that can cause a pop-up [SETUP-WEB]
-user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // MISCELLANEOUS
@@ -560,9 +557,6 @@ user_pref("beacon.enabled", false);
 // -------------------------------------
 // Remove temp files opened with an external application
 user_pref("browser.helperApps.deleteTempFileOnExit", true);
-// -------------------------------------
-// Disable page thumbnail collection
-user_pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN PREF]
 // -------------------------------------
 // Disable UITour backend so there is no chance that a remote page can use it
 user_pref("browser.uitour.enabled", false);
@@ -720,9 +714,6 @@ user_pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN PREF]
 // Set RFP's font visibility level [FF94+]
 // user_pref("layout.css.font-visibility.resistFingerprinting", 1); // [DEFAULT: 1]
 // -------------------------------------
-// Disable showing about:blank as soon as possible during startup [FF60+]
-user_pref("browser.startup.blankWindow", false);
-// -------------------------------------
 // Disable using system colors
 user_pref("browser.display.use_system_colors", false); // [DEFAULT: false NON-WINDOWS]
 // -------------------------------------
@@ -806,6 +797,12 @@ user_pref("extensions.formautofill.addresses.enabled", false); // [FF55+]
 user_pref("extensions.formautofill.creditCards.enabled", false); // [FF56+]
 user_pref("extensions.formautofill.heuristics.enabled", false); // [FF55+]
 // -------------------------------------
+// Limit events that can cause a pop-up
+// user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
+// -------------------------------------
+// Disable page thumbnail collection
+// user_pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN PREF]
+// -------------------------------------
 // Enable Site Isolation
 user_pref("fission.autostart", true);
 user_pref("gfx.webrender.all", true);
@@ -872,6 +869,7 @@ user_pref("security.tls.version.enable-deprecated", false); // [DEFAULT: false]
 user_pref("extensions.webcompat-reporter.enabled", false); // [DEFAULT: false]
 // -------------------------------------
 // prefsCleaner: reset items removed from arkenfox FF102+
+// user_pref("browser.startup.blankWindow", "");
 // user_pref("browser.newtab.preload", "");
 // user_pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", "");
 // user_pref("browser.newtabpage.activity-stream.feeds.snippets", "");
