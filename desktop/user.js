@@ -56,7 +56,7 @@ user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
 user_pref("geo.provider.use_corelocation", false); // [MAC]
 user_pref("geo.provider.use_gpsd", false); // [LINUX]
 user_pref("geo.provider.geoclue.always_high_accuracy", false); // [LINUX]
-user_pref("geo.provider.use_geoclue", false); [FF102+] [LINUX]
+user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 // -------------------------------------
 // Disable region updates
 user_pref("browser.region.network.url", ""); // [FF78+] Defense-in-depth
@@ -70,6 +70,8 @@ user_pref("intl.accept_languages", "en-US, en");
 // -------------------------------------
 // Use en-US locale regardless of the system or region locale
 user_pref("javascript.use_us_english_locale", true); // [HIDDEN PREF]
+user_pref("privacy.spoof_english", 2);
+user_pref("intl.locale.requested", "en-US");
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // QUIETER FOX
@@ -487,9 +489,6 @@ user_pref("privacy.userContext.ui.enabled", true);
 // PLUGINS / MEDIA / WEBRTC
 // >>>>>>>>>>>>>>>>>>>>>
 //
-// Disable WebRTC (Web Real-Time Communication)
-user_pref("media.peerconnection.enabled", false);
-// -------------------------------------
 // Force WebRTC inside the proxy [FF70+]
 user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 // -------------------------------------
@@ -775,6 +774,9 @@ user_pref("extensions.formautofill.heuristics.enabled", false); // [FF55+]
 // Disable page thumbnail collection
 // user_pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN PREF]
 // -------------------------------------
+// Force GPU sandboxing (Linux, default on Windows)
+user_pref("security.sandbox.gpu.level", 1);
+// -------------------------------------
 // Enable Site Isolation
 user_pref("fission.autostart", true);
 user_pref("gfx.webrender.all", true);
@@ -919,7 +921,7 @@ user_pref("extensions.systemAddon.update.enabled", false); // [FF62+]
 user_pref("extensions.systemAddon.update.url", ""); // [FF44+]
 // -------------------------------------
 // Enable the DNT (Do Not Track) HTTP header
-// user_pref("privacy.donottrackheader.enabled", true);
+user_pref("privacy.donottrackheader.enabled", false);
 // -------------------------------------
 // Customize ETP settings
 // user_pref("network.cookie.cookieBehavior", 5); // [DEFAULT: 5 FF103+]
@@ -949,6 +951,9 @@ user_pref("dom.push.enabled", false);
 user_pref("dom.push.connection.enabled", false);
 user_pref("dom.push.serverURL", "");
 user_pref("dom.push.userAgentID", "");
+// -------------------------------------
+// Disable WebRTC (Web Real-Time Communication)
+user_pref("media.peerconnection.enabled", false);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // DON'T BOTHER: FINGERPRINTING
