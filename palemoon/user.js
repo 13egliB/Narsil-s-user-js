@@ -147,10 +147,6 @@ user_pref("browser.feedback.url", "");
 // Disable auto updating of personas (themes)
 user_pref("lightweightThemes.update.enabled", false);
 // -------------------------------------
-// Disable Tracking Protection in all windows
-user_pref("privacy.trackingprotection.pbmode.enabled", false);
-user_pref("privacy.trackingprotection.enabled", false);
-// -------------------------------------
 // Disable detailed error reporting of media errors for debugging purposes
 user_pref("media.sourceErrorDetails.enabled", false);
 // -------------------------------------
