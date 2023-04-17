@@ -802,6 +802,9 @@ user_pref("extensions.formautofill.heuristics.enabled", false); // [FF55+]
 // Disable page thumbnail collection
 // user_pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN PREF]
 // -------------------------------------
+// Disable Windows native notifications and use app notications instead [FF111+] [WINDOWS]
+// user_pref("alerts.useSystemBackend.windows.notificationserver.enabled", false);
+// -------------------------------------
 // Force GPU sandboxing (Linux, default on Windows)
 // user_pref("security.sandbox.gpu.level", 1); // [NOT READY YET]
 // -------------------------------------
@@ -952,7 +955,7 @@ user_pref("extensions.systemAddon.update.url", ""); // [FF44+]
 user_pref("privacy.donottrackheader.enabled", false);
 // -------------------------------------
 // Customize ETP settings
-user_pref("network.cookie.cookieBehavior", 1); // [DEFAULT: 5 FF103+] [FPI]
+user_pref("network.cookie.cookieBehavior", 5); // [DEFAULT: 5 FF111+]
 user_pref("privacy.partition.network_state.ocsp_cache", true);
 user_pref("privacy.query_stripping.enabled", true); // [FF101+] [ETP FF102+]
 user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
@@ -1014,6 +1017,12 @@ user_pref("dom.w3c_touch_events.enabled", 1); // [FENIX BUG]
 user_pref("dom.webaudio.enabled", false);
 user_pref("media.navigator.enabled", false);
 user_pref("media.webspeech.synth.enabled", false);
+// -------------------------------------
+// Disable API for measuring text width and height.
+user_pref("dom.textMetrics.actualBoundingBox.enabled", false);
+user_pref("dom.textMetrics.baselines.enabled", false);
+user_pref("dom.textMetrics.emHeight.enabled", false);
+user_pref("dom.textMetrics.fontBoundingBox.enabled", false);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // NON-PROJECT RELATED
