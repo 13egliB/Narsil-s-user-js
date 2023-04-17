@@ -107,6 +107,9 @@ user_pref("toolkit.telemetry.updatePing.enabled", false); // [FF56+]
 user_pref("toolkit.telemetry.bhrPing.enabled", false); // [FF57+] Background Hang Reporter
 user_pref("toolkit.telemetry.firstShutdownPing.enabled", false); // [FF57+]
 // -------------------------------------
+// Skip checking omni.ja and other files
+user_pref("corroborator.enabled", false);
+// -------------------------------------
 // Disable Telemetry Coverage
 user_pref("toolkit.telemetry.coverage.opt-out", true); // [HIDDEN PREF]
 user_pref("toolkit.coverage.opt-out", true); // [FF64+] [HIDDEN PREF]
@@ -774,6 +777,9 @@ user_pref("extensions.formautofill.heuristics.enabled", false); // [FF55+]
 // Disable page thumbnail collection
 // user_pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN PREF]
 // -------------------------------------
+// Disable Windows native notifications and use app notications instead [FF111+] [WINDOWS]
+// user_pref("alerts.useSystemBackend.windows.notificationserver.enabled", false);
+// -------------------------------------
 // Force GPU sandboxing (Linux, default on Windows)
 user_pref("security.sandbox.gpu.level", 1);
 // -------------------------------------
@@ -984,6 +990,12 @@ user_pref("dom.w3c_touch_events.enabled", 0);
 user_pref("dom.webaudio.enabled", false);
 user_pref("media.navigator.enabled", false);
 user_pref("media.webspeech.synth.enabled", false);
+// -------------------------------------
+// Disable API for measuring text width and height.
+user_pref("dom.textMetrics.actualBoundingBox.enabled", false);
+user_pref("dom.textMetrics.baselines.enabled", false);
+user_pref("dom.textMetrics.emHeight.enabled", false);
+user_pref("dom.textMetrics.fontBoundingBox.enabled", false);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // NON-PROJECT RELATED
