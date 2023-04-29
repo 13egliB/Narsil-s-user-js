@@ -118,6 +118,13 @@ user_pref("browser.ping-centre.telemetry", false);
 // Disable Firefox Home (Activity Stream) telemetry
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
+// -------------------------------------
+// Disable WebVTT logging and test events
+user_pref("media.webvtt.debug.logging", false);
+user_pref("media.webvtt.testing.events", false);
+// -------------------------------------
+// Disable send content blocking log to about:protections
+user_pref("browser.contentblocking.database.enabled", false);
 //
 // STUDIES
 //
@@ -468,6 +475,13 @@ user_pref("dom.security.https_only_mode", true); // [FF76+]
 // -------------------------------------
 // Disable HTTP background requests [FF82+]
 user_pref("dom.security.https_only_mode_send_http_background_request", false);
+// -------------------------------------
+// Disable ping to Mozilla for Man-in-the-Middle detection
+user_pref("security.certerrors.mitm.priming.enabled", false);
+user_pref("security.certerrors.mitm.priming.endpoint", "");
+user_pref("security.pki.mitm_canary_issuer", "");
+user_pref("security.pki.mitm_canary_issuer.enabled", false);
+user_pref("security.pki.mitm_detected", false);
 //
 // UI (User Interface)
 //
@@ -589,6 +603,10 @@ user_pref("network.protocol-handler.external.ms-windows-store", false);
 // -------------------------------------
 // Disable permissions delegation [FF73+]
 user_pref("permissions.delegation.enabled", false);
+// -------------------------------------
+// Disable the default checkedness for "Save card and address to Firefox" checkboxes
+user_pref("dom.payments.defaults.saveAddress", false);
+user_pref("dom.payments.defaults.saveCreditCard", false);
 //
 // DOWNLOADS
 //
@@ -904,6 +922,12 @@ user_pref("permissions.default.microphone", 2);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.xr", 2); // Virtual Reality
 // -------------------------------------
+// Disable canvas capture stream
+user_pref("canvas.capturestream.enabled", false);
+// -------------------------------------
+// Disable offscreen canvas
+user_pref("gfx.offscreencanvas.enabled", false);
+// -------------------------------------
 // Disable non-modern cipher suites
 // user_pref("security.ssl3.ecdhe_ecdsa_aes_128_sha", false); // [DEFAULT: false FF109+]
 // user_pref("security.ssl3.ecdhe_ecdsa_aes_256_sha", false); // [DEFAULT: false FF109+]
@@ -1006,8 +1030,8 @@ user_pref("media.peerconnection.enabled", false);
 // user_pref("general.useragent.override", "Mozilla/5.0 (Android 10; Mobile; rv:102.0) Gecko/102.0 Firefox/102.0"); // [HIDDEN PREF]
 // user_pref("media.ondevicechange.enabled", false);
 // user_pref("media.video_stats.enabled", false);
-// user_pref("ui.use_standins_for_native_colors", true);
 // user_pref("webgl.enable-debug-renderer-info", false);
+user_pref("ui.use_standins_for_native_colors", true);
 user_pref("browser.display.use_document_fonts", 0);
 user_pref("device.sensors.enabled", false);
 user_pref("dom.gamepad.enabled", false);
