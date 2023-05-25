@@ -872,6 +872,7 @@ user_pref("dom.maxHardwareConcurrency", 2);
 // -------------------------------------
 // Disable resource/navigation timing
 user_pref("dom.enable_resource_timing", false);
+user_pref("dom.enable_performance_navigation_timing", false);
 // -------------------------------------
 // Disable timing attacks
 // user_pref("dom.enable_performance", false);
@@ -1031,9 +1032,6 @@ user_pref("javascript.options.shared_memory", false);
 // -------------------------------------
 // Enable the <menuitem> html tag
 // user_pref("dom.menuitem.enabled", true);
-// -------------------------------------
-// Control the use of node.getRootNode
-user_pref("dom.getRootNode.enabled", false);
 // -------------------------------------
 // Test user.js in about:config
 user_pref("_config.applied", true);
