@@ -239,7 +239,7 @@ user_pref("browser.formfill.enable", false);
 user_pref("browser.formfill.saveHttpsForms", false);
 // -------------------------------------
 // Disable browsing and download history
-user_pref("places.history.enabled", false);
+// user_pref("places.history.enabled", false);
 // -------------------------------------
 // Enable immediately showing the edit dialog for new bookmarks
 // user_pref("browser.bookmarks.editDialog.showForNewBookmarks", true);
@@ -872,6 +872,7 @@ user_pref("dom.maxHardwareConcurrency", 2);
 // -------------------------------------
 // Disable resource/navigation timing
 user_pref("dom.enable_resource_timing", false);
+user_pref("dom.enable_performance_navigation_timing", false);
 // -------------------------------------
 // Disable timing attacks
 // user_pref("dom.enable_performance", false);
@@ -906,98 +907,15 @@ user_pref("dom.w3c_pointer_events.enabled", false);
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // RFP ALTERNATIVES (NAVIGATOR / USER AGENT SPOOFING)
 // >>>>>>>>>>>>>>>>>>>>>
-// Navigator DOM object overrides
-user_pref("general.buildID.override", ""); // (HIDDEN PREF)
-user_pref("browser.startup.homepage_override.buildID", ""); // (HIDDEN PREF)
-user_pref("network.http.useragent.global_override", ""); // (HIDDEN PREF)
-user_pref("general.appname.override", ""); // (HIDDEN PREF)
-user_pref("general.appversion.override", ""); // (HIDDEN PREF)
-user_pref("general.platform.override", ""); // (HIDDEN PREF)
-user_pref("general.oscpu.override", ""); // (HIDDEN PREF)
+// Navigator DOM object overrides. Using Tor browser values.
+user_pref("general.buildID.override", "20181001000000"); // (HIDDEN PREF)
+user_pref("browser.startup.homepage_override.buildID", "20100101"); // (HIDDEN PREF)
+user_pref("network.http.useragent.global_override", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0"); // (HIDDEN PREF)
+user_pref("general.appname.override", "Netscape"); // (HIDDEN PREF)
+user_pref("general.appversion.override", "5.0 (X11)"); // (HIDDEN PREF)
+user_pref("general.platform.override", "Linux x86_64"); // (HIDDEN PREF)
+user_pref("general.oscpu.override", "Linux x86_64"); // (HIDDEN PREF)
 user_pref("general.useragent.updates.url", "");
-// -------------------------------------
-// Site Specific User Agent Overrides
-user_pref("general.useragent.override.1chan.net", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.4chan.org", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.alcatelfirmware.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.altibox.dk", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.altibox.no", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.aol.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.app.codility.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.arnewsline.org", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.artixlinux.org", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.axios.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.bell-labs.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.binarytides.com", "Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0");
-user_pref("general.useragent.override.bing.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.borgbackup.readthedocs.org", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.budsgunshop.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.calendar.yahoo.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.chase.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.citi.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.crates.io", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.dailymotion.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.deviantart.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.deviantart.net", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.dropbox.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.e621.net", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.facebook.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.fafsa.ed.gov", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.fafsa.ed.gov", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.fbcdn.net", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.firefox.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.forum.palemoon.org", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.forums.hak5.org", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.gaming.youtube.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.getvoip.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.ghostbymcafee.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.gitlab.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.google.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.googlevideos.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.gstatic.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.hcaptcha.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.hitbox.tv", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.humblebundle.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.infowars.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.installgentoo.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.jitsi.free.org", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.live.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.login.linode.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.macrumors.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.meet.jit.si", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.meet.jit.si", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.msafes.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.msn.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.netflix.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.netflximg.net", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.outlook.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.override.arxiv.org", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.phoronix.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.phpbuilder.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.players.brightcove.net", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.privat24.ua", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.readthedocs.io", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.rtl-sdr.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.signin.ebay.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.soundcloud.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.stackexchange.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.stackoverflow.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.store.ui.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.take.indeedassessments.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.take.indeedassessments.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.tools.ietf.org", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.w3resource.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.web.archive.org", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.web.de", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.web.whatsapp.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.www.amazon.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.www.ebay.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.www.isa-arbor.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.www.samsclub.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.www.toast.net", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.yahoo.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.youtube.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
-user_pref("general.useragent.override.yuku.com", "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0");
 // -------------------------------------
 // Set a preferred language for spellchecking, overrides document/element languages
 user_pref("spellchecker.dictionary.override", "");
@@ -1114,12 +1032,6 @@ user_pref("javascript.options.shared_memory", false);
 // -------------------------------------
 // Enable the <menuitem> html tag
 // user_pref("dom.menuitem.enabled", true);
-// -------------------------------------
-// Control the use of node.getRootNode
-user_pref("dom.getRootNode.enabled", false);
-// -------------------------------------
-// Disable javascript
-user_pref("javascript.enabled", false);
 // -------------------------------------
 // Test user.js in about:config
 user_pref("_config.applied", true);
