@@ -995,7 +995,7 @@ user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // [DEFAUL
 // user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // [HIDDEN PREF]
 // -------------------------------------
 // Disable service workers
-user_pref("dom.serviceWorkers.enabled", false);
+// user_pref("dom.serviceWorkers.enabled", false);
 // -------------------------------------
 // Disable Web Notifications
 // user_pref("dom.webnotifications.enabled", false); // [FF22+]
