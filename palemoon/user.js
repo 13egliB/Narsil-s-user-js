@@ -52,6 +52,9 @@ user_pref("browser.newtabpage.add_to_session_history", false);
 // Hide tabs (only one in use)
 // user_pref("browser.tabs.autoHide", true);
 // -------------------------------------
+// Control listed history entries in the menu
+// user_pref("browser.history.menuMaxResults", 0); // [HIDDEN PREF]
+// -------------------------------------
 // Tabs on top
 // user_pref(“browser.tabs.onTop", true);
 //
