@@ -315,7 +315,7 @@ user_pref("network.gio.supported-protocols", ""); // [HIDDEN PREF]
 // user_pref("network.proxy.failover_direct", false);
 // -------------------------------------
 // Disable proxy bypass for system request failures [FF95+]
-// user_pref("network.proxy.allow_bypass", false); // [HIDDEN PREF FF95-96]
+// user_pref("network.proxy.allow_bypass", false);
 // -------------------------------------
 // Disable DNS-over-HTTPS (DoH) rollout [FF60+]
 user_pref("network.trr.mode", 5);
@@ -578,9 +578,6 @@ user_pref("browser.uitour.url", "");
 // Reset remote debugging to disabled
 user_pref("devtools.debugger.remote-enabled", false); // [DEFAULT: false]
 // -------------------------------------
-// Disable middle mouse click opening links from clipboard
-user_pref("middlemouse.contentLoadURL", false);
-// -------------------------------------
 // Disable websites overriding Firefox's keyboard shortcuts [FF58+]
 // 0 (default) or 1=allow, 2=block
 // user_pref("permissions.default.shortcuts", 2);
@@ -603,6 +600,9 @@ user_pref("network.protocol-handler.external.ms-windows-store", false);
 // -------------------------------------
 // Disable permissions delegation [FF73+]
 user_pref("permissions.delegation.enabled", false);
+// -------------------------------------
+// Disable middle click on new tab button opening URLs or searches using clipboard [FF115+]
+user_pref("browser.tabs.searchclipboardfor.middleclick", false); // [DEFAULT: false NON-LINUX]
 // -------------------------------------
 // Disable the default checkedness for "Save card and address to Firefox" checkboxes
 user_pref("dom.payments.defaults.saveAddress", false);
@@ -679,9 +679,6 @@ user_pref("privacy.clearOnShutdown.sessions", true); // [DEFAULT: true]
 // Set "Cookies" and "Site Data" to clear on shutdown
 user_pref("privacy.clearOnShutdown.cookies", true); // Cookies
 user_pref("privacy.clearOnShutdown.offlineApps", true); // Site Data
-// -------------------------------------
-// Set cache to clear on exit [FF96+]
-// user_pref("privacy.clearsitedata.cache.enabled", true);
 //
 // SANITIZE MANUAL: IGNORES "ALLOW" SITE EXCEPTIONS
 //
@@ -710,15 +707,16 @@ user_pref("privacy.sanitize.timeSpan", 0);
 // RFP (RESIST FINGERPRINTING)
 // >>>>>>>>>>>>>>>>>>>>>
 //
-// Enable privacy.resistFingerprinting [FF41+]
-user_pref("privacy.resistFingerprinting", true);
+// Enable privacy.resistFingerprinting
+user_pref("privacy.resistFingerprinting", true); // [FF41+]
+// user_pref("privacy.resistFingerprinting.pbmode", true); // [FF114+]
 // -------------------------------------
 // Set new window size rounding max values [FF55+]
-// user_pref("privacy.window.maxInnerWidth", 1600);
+// user_pref("privacy.window.maxInnerWidth", 1400);
 // user_pref("privacy.window.maxInnerHeight", 900);
 // -------------------------------------
 // Disable mozAddonManager Web API [FF57+]
-user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDEN PREF]
+user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDEN PREF FF57-108]
 // -------------------------------------
 // Enable RFP letterboxing [FF67+]
 user_pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN PREF]
@@ -726,7 +724,6 @@ user_pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN PREF]
 // -------------------------------------
 // Experimental RFP [FF91+]
 // user_pref("privacy.resistFingerprinting.exemptedDomains", "*.example.invalid");
-// user_pref("privacy.resistFingerprinting.testGranularityMask", 0);
 // -------------------------------------
 // Set RFP's font visibility level [FF94+]
 // user_pref("layout.css.font-visibility.resistFingerprinting", 1); // [DEFAULT: 1]
@@ -786,6 +783,7 @@ user_pref("browser.urlbar.suggest.bookmark", false);
 user_pref("browser.urlbar.suggest.openpage", false);
 user_pref("browser.urlbar.suggest.topsites", false); // [FF78+]
 user_pref("browser.urlbar.autocomplete.enabled", false);
+user_pref("browser.urlbar.suggest.weather", false);
 // -------------------------------------
 // Disable location bar dropdown
 // user_pref("browser.urlbar.maxRichResults", 0);
@@ -812,7 +810,6 @@ user_pref("places.history.enabled", false);
 // Disable Form Autofill
 user_pref("extensions.formautofill.addresses.enabled", false); // [FF55+]
 user_pref("extensions.formautofill.creditCards.enabled", false); // [FF56+]
-user_pref("extensions.formautofill.heuristics.enabled", false); // [FF55+]
 // -------------------------------------
 // Limit events that can cause a pop-up
 // user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
@@ -891,6 +888,9 @@ user_pref("security.tls.version.enable-deprecated", false); // [DEFAULT: false]
 // Enforce disabling of Web Compatibility Reporter [FF56+]
 user_pref("extensions.webcompat-reporter.enabled", false); // [DEFAULT: false]
 // -------------------------------------
+// Disable quarantined domains [FF115+]
+user_pref("extensions.quarantinedDomains.enabled", false); // [DEFAULT: true]
+// -------------------------------------
 // prefsCleaner: reset items removed from arkenfox FF102+
 // user_pref("browser.startup.blankWindow", "");
 // user_pref("browser.newtab.preload", "");
@@ -904,6 +904,7 @@ user_pref("extensions.webcompat-reporter.enabled", false); // [DEFAULT: false]
 // user_pref("extensions.formautofill.addresses.supported", "");
 // user_pref("extensions.formautofill.creditCards.available", "");
 // user_pref("extensions.formautofill.creditCards.supported", "");
+// user_pref("middlemouse.contentLoadURL", "");
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // DON'T BOTHER
@@ -912,7 +913,6 @@ user_pref("extensions.webcompat-reporter.enabled", false); // [DEFAULT: false]
 // Disable APIs
 user_pref("geo.enabled", false);
 // user_pref("full-screen-api.enabled", false);
-user_pref("browser.cache.offline.enable", false);
 // -------------------------------------
 // Set default permissions
 // 0=always ask (default), 1=allow, 2=block
@@ -1145,6 +1145,22 @@ user_pref("network.cookie.lifetimePolicy", 2);
 // -------------------------------------
 // Disable SHA-1 certificates
 // user_pref("security.pki.sha1_enforcement_level", 1); // [DEFAULT: 1]
+//
+// FF114
+//
+// Set cache to clear on exit [FF96+]
+// user_pref("privacy.clearsitedata.cache.enabled", true);
+// -------------------------------------
+// Experimental RFP [FF91+]
+// user_pref("privacy.resistFingerprinting.testGranularityMask", 0);
+// -------------------------------------
+// Disable Form Autofill heuristics
+// user_pref("extensions.formautofill.heuristics.enabled", false); // [FF55+]
+//
+// FF115
+//
+// Disable offline cache (appCache)
+// user_pref("browser.cache.offline.enable", false);
 // -------------------------------------
 // Test user.js in about:config
 user_pref("_config.applied", true);
