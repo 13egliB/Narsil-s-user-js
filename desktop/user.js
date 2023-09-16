@@ -283,12 +283,9 @@ user_pref("browser.places.speculativeConnect.enabled", false);
 // user_pref("browser.send_pings", false); // [DEFAULT: false]
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// DNS / DoH / PROXY / SOCKS / IPv6
+// DNS / DoH / PROXY / SOCKS
 // >>>>>>>>>>>>>>>>>>>>>
 //
-// Disable IPv6
-user_pref("network.dns.disableIPv6", true);
-// -------------------------------------
 // Set the proxy server to do any DNS lookups when using SOCKS
 user_pref("network.proxy.socks_remote_dns", true);
 // -------------------------------------
@@ -313,9 +310,6 @@ user_pref("network.trr.confirmationNS", "");
 // LOCATION BAR / SEARCH BAR / SUGGESTIONS / HISTORY / FORMS
 // >>>>>>>>>>>>>>>>>>>>>
 //
-// Disable location bar using search
-// user_pref("keyword.enabled", false);
-// -------------------------------------
 // Disable location bar domain guessing
 user_pref("browser.fixup.alternate.enabled", false); // [DEFAULT: false FF104+]
 // Disable live search suggestions
@@ -486,14 +480,10 @@ user_pref("browser.xul.error_pages.expert_bad_cert", true);
 // user_pref("layout.css.font-visibility.trackingprotection", 1);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// HEADERS / REFERERS
+// REFERERS
 // >>>>>>>>>>>>>>>>>>>>>
 //
-// Control when to send a cross-origin referer
-// 0=always (default), 1=only if base domains match, 2=only if hosts match
-user_pref("network.http.referer.XOriginPolicy", 2);
-// -------------------------------------
-// Control the amount of cross-origin information to send [FF52+]
+/ Control the amount of cross-origin information to send [FF52+]
 // 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 //
@@ -525,13 +515,6 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 user_pref("media.gmp-provider.enabled", false);
 user_pref("media.gmp-manager.url", "");
 user_pref("media.gmp-gmpopenh264.enabled", false);
-// -------------------------------------
-// Disable widevine CDM (Content Decryption Module)
-user_pref("media.gmp-widevinecdm.enabled", false);
-// -------------------------------------
-// Disable all DRM content (EME: Encryption Media Extension)
-user_pref("media.eme.enabled", false);
-user_pref("browser.eme.ui.enabled", false);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // DOM (DOCUMENT OBJECT MODEL)
@@ -576,9 +559,6 @@ user_pref("network.IDN_show_punycode", true);
 // Enforce PDFJS, disable PDFJS scripting
 user_pref("pdfjs.disabled", false); // [DEFAULT: false]
 user_pref("pdfjs.enableScripting", false); // [FF86+]
-// -------------------------------------
-// Disable links launching Windows Store on Windows 8/8.1/10 [WINDOWS]
-user_pref("network.protocol-handler.external.ms-windows-store", false);
 // -------------------------------------
 // Disable permissions delegation [FF73+]
 user_pref("permissions.delegation.enabled", false);
@@ -788,7 +768,7 @@ user_pref("places.history.enabled", false);
 // user_pref("browser.taskbar.previews.enable", false); // [DEFAULT: false]
 // -------------------------------------
 // Discourage downloading to desktop
-// 0=desktop, 1=downloads (default), 2=last used
+// 0=desktop, 1=downloads (default), 2=custom
 // user_pref("browser.download.folderList", 2);
 // -------------------------------------
 // Disable Form Autofill
@@ -803,6 +783,9 @@ user_pref("extensions.formautofill.creditCards.enabled", false); // [FF56+]
 // -------------------------------------
 // Disable Windows native notifications and use app notications instead [FF111+] [WINDOWS]
 // user_pref("alerts.useSystemBackend.windows.notificationserver.enabled", false);
+// -------------------------------------
+// Disable location bar using search
+user_pref("keyword.enabled", false);
 // -------------------------------------
 // Force GPU sandboxing (Linux, default on Windows)
 user_pref("security.sandbox.gpu.level", 1);
@@ -837,6 +820,20 @@ user_pref("javascript.options.wasm", false);
 // -------------------------------------
 // Disable rendering of SVG OpenType fonts
 user_pref("gfx.font_rendering.opentype_svg.enabled", false);
+// -------------------------------------
+// Disable widevine CDM (Content Decryption Module)
+user_pref("media.gmp-widevinecdm.enabled", false);
+// -------------------------------------
+// Disable all DRM content (EME: Encryption Media Extension)
+user_pref("media.eme.enabled", false);
+user_pref("browser.eme.ui.enabled", false);
+// -------------------------------------
+// Disable IPv6 if using a VPN
+// user_pref("network.dns.disableIPv6", true);
+// -------------------------------------
+// Control when to send a cross-origin referer
+// * 0=always (default), 1=only if base domains match, 2=only if hosts match
+// user_pref("network.http.referer.XOriginPolicy", 2);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // DON'T TOUCH
@@ -889,6 +886,9 @@ user_pref("extensions.quarantinedDomains.enabled", false); // [DEFAULT: true]
 // user_pref("extensions.formautofill.creditCards.available", "");
 // user_pref("extensions.formautofill.creditCards.supported", "");
 // user_pref("middlemouse.contentLoadURL", "");
+// -------------------------------------
+// prefsCleaner: reset previously active items removed from arkenfox FF115+
+// user_pref("network.protocol-handler.external.ms-windows-store", "");
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // DON'T BOTHER
