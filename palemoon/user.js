@@ -989,6 +989,10 @@ user_pref("lightweightThemes.animation.enabled", false);
 // Enable Hardware Acceleration
 // user_pref("layers.acceleration.enabled", true);
 // user_pref("layers.acceleration.force", true);
+// -------------------------------------
+// Disable CSS-based animations and transition effects
+user_pref("layout.css.animation.enabled", false);
+user_pref("layout.css.transition.enabled", false);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // WARNINGS
