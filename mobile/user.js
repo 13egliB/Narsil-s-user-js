@@ -314,10 +314,16 @@ user_pref("network.gio.supported-protocols", ""); // [HIDDEN PREF]
 // Disable proxy bypass for system request failures [FF95+]
 // user_pref("network.proxy.allow_bypass", false);
 // -------------------------------------
-// Disable DNS-over-HTTPS (DoH) rollout [FF60+]
+// Disable DNS-over-HTTPS (DoH)[FF60+]
 user_pref("network.trr.mode", 5);
-user_pref("network.trr.uri", "");
 user_pref("network.trr.confirmationNS", "");
+// -------------------------------------
+// Disable skipping DoH when parental controls are enabled [FF70+]
+user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
+// -------------------------------------
+// Disable skipping DoH when parental controls are enabled
+user_pref("network.trr.uri", "");
+user_pref("network.trr.custom_uri", "");
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // LOCATION BAR / SEARCH BAR / SUGGESTIONS / HISTORY / FORMS
@@ -430,12 +436,6 @@ user_pref("security.OCSP.require", false);
 //
 // CERTS / HPKP (HTTP Public Key Pinning)
 //
-// Disable Windows 8.1's Microsoft Family Safety cert [FF50+] [WINDOWS]
-// 0=disable detecting Family Safety mode and importing the root
-// 1=only attempt to detect Family Safety mode (don't import the root)
-// 2=detect Family Safety mode and import the root
-user_pref("security.family_safety.mode", 0);
-// -------------------------------------
 // Enable strict PKP (Public Key Pinning)
 // 0=disabled, 1=allow user MiTM (default; such as your antivirus), 2=strict
 user_pref("security.cert_pinning.enforcement_level", 2);
@@ -704,9 +704,6 @@ user_pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN PREF]
 // Experimental RFP [FF91+]
 // user_pref("privacy.resistFingerprinting.exemptedDomains", "*.example.invalid");
 // -------------------------------------
-// Set RFP's font visibility level [FF94+]
-// user_pref("layout.css.font-visibility.resistFingerprinting", 1); // [DEFAULT: 1]
-// -------------------------------------
 // Disable using system colors
 user_pref("browser.display.use_system_colors", false); // [DEFAULT: false NON-WINDOWS]
 // -------------------------------------
@@ -849,6 +846,9 @@ user_pref("browser.eme.ui.enabled", false);
 // Control when to send a cross-origin referer
 // * 0=always (default), 1=only if base domains match, 2=only if hosts match
 // user_pref("network.http.referer.XOriginPolicy", 2);
+// -------------------------------------
+// Set DoH bootstrap address [FF89+]
+// user_pref("network.trr.bootstrapAddr", "10.0.0.1") // [HIDDEN PREF]
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // DON'T TOUCH
@@ -996,9 +996,8 @@ user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // [DEFAUL
 // Disable service workers
 // user_pref("dom.serviceWorkers.enabled", false);
 // -------------------------------------
-// Disable Web Notifications
-// user_pref("dom.webnotifications.enabled", false); // [FF22+]
-// user_pref("dom.webnotifications.serviceworker.enabled", false); // [FF44+]
+// Disable Web Notifications [FF22+]
+// user_pref("dom.webnotifications.enabled", false);
 // user_pref("notification.feature.enabled", false);
 // -------------------------------------
 // Disable Push Notifications [FF44+]
@@ -1163,4 +1162,19 @@ user_pref("network.cookie.lifetimePolicy", 2);
 // -------------------------------------
 // Test user.js in about:config
 user_pref("_config.applied", true);
+//
+// ESR115.x still uses all the following prefs
+//
+// FF116
+//
+// Set RFP's font visibility level [FF94+]
+// user_pref("layout.css.font-visibility.resistFingerprinting", 1); // [DEFAULT: 1]
+//
+// FF117
+//
+// Disable Windows Microsoft Family Safety cert [FF50+] [WINDOWS]
+user_pref("security.family_safety.mode", 0);
+// -------------------------------------
+// Disable service worker Web Notifications [FF44+]
+// user_pref("dom.webnotifications.serviceworker.enabled", false);
 //
