@@ -362,15 +362,6 @@ user_pref("security.ssl.require_safe_negotiation", true);
 // -------------------------------------
 // Disable SSL session tracking
 user_pref("security.ssl.disable_session_identifiers", true); // [HIDDEN PREF]
-// -------------------------------------
-// Block rc4 fallback
-user_pref("security.tls.unrestricted_rc4_fallback", false);
-// -------------------------------------
-// Disable TLS1.3 0-RTT (round-trip time)
-user_pref("security.tls.enable_0rtt_data", false);
-// -------------------------------------
-// Disable TLS 1.3 draft support
-// user_pref("security.tls.version.max", 4);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // OCSP (Online Certificate Status Protocol)
@@ -507,9 +498,6 @@ user_pref("media.gmp-manager.url", ""); // [HIDDEN PREF]
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // MEDIA / CAMERA / MIC
 // >>>>>>>>>>>>>>>>>>>>>
-// Disable WebRTC (Web Real-Time Communication)
-user_pref("media.peerconnection.enabled", false);
-// -------------------------------------
 // Disable camera stuff
 user_pref("camera.control.face_detection.enabled", false);
 // -------------------------------------
